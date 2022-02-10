@@ -1,0 +1,82 @@
+body, html{
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #2f3542;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box {
+    width: 300px;
+    height: 400px;
+    padding: 45px;
+    background: #191919;
+    text-align: center;
+}
+
+.form-title {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+label {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 250;
+    padding-right: 6px;
+    padding-bottom: 1px;
+}
+
+.form-box input[type="text"],
+.form-box input[type="password"],
+.form-box button[type="submit"] {
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 14px 10px;
+    border: 2px solid #3742fa;
+    width: 200px;
+    outline: none;
+    color: #fff;
+    border-radius: 20px;
+    transition: 0.25s;
+}
+
+#carrera {
+    color: grey;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border: solid #3742fa;
+    width: 250px;
+    outline: none;
+    border-radius: 30px;
+}
+
+.form-box input[type="text"]:focus,
+.form-box input[type="password"]:focus,
+#carrera:focus {
+    width: 250px;
+    border-color: white;
+}
+
+.form-box button[type="submit"] {
+    background: #5352ed;
+    cursor: pointer;
+    border: 2px solid #3742fa;
+}
+
+.form-box button[type="submit"]:hover {
+    background: none;
+}
