@@ -1,11 +1,13 @@
-body, html{
+section, html {
     height: 100%;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 }
 
-body {
+section {
     margin: 0;
     padding: 0;
-    background: #2f3542;
 
     display: flex;
     flex-direction: row;
@@ -15,11 +17,17 @@ body {
     overflow: hidden;
 }
 
+/*Alternativa al body*/
+.snake {
+    padding: 110px;
+    height: auto;
+}
+
 .form-box {
-    width: 300px;
-    height: 400px;
+    width: 450px;
+    height: 530px;
     padding: 45px;
-    background: #191919;
+    background: #1c223e;
     text-align: center;
 }
 
@@ -42,9 +50,9 @@ label {
 .form-box button[type="submit"] {
     background: none;
     display: block;
-    margin: 20px auto;
-    padding: 14px 10px;
-    border: 2px solid #3742fa;
+    margin: 30px auto;
+    padding: 10px 20px;
+    border: solid #3742fa;
     width: 200px;
     outline: none;
     color: #fff;
@@ -57,7 +65,7 @@ label {
     background: none;
     display: block;
     margin: 20px auto;
-    padding: 15px 20px;
+    padding: 12px 20px;
     border: solid #3742fa;
     width: 250px;
     outline: none;
@@ -67,7 +75,7 @@ label {
 .form-box input[type="text"]:focus,
 .form-box input[type="password"]:focus,
 #carrera:focus {
-    width: 250px;
+    width: 270px;
     border-color: white;
 }
 
@@ -79,4 +87,29 @@ label {
 
 .form-box button[type="submit"]:hover {
     background: none;
+}
+
+.btn-link[type="button"]{
+    font-weight: bold;
+}
+
+.btn-link[type="button"]:hover{
+    background: #5352ed;
+    color: #ffffff;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.navbar-light .navbar-brand {
+    color: #fc7b00;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #fc7b00;
+}
+
+.navbar.navbar-expand-lg.navbar-light{
+    opacity: 0.8;
 }

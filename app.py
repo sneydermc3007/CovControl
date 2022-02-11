@@ -7,11 +7,10 @@ def inicioSesion():
     return render_template('index.html')
 
 
-"""
-@app.route('/Sing Up')
-def Registro():
-    return 'Registro de Usuarios'
-"""
+@app.route('/SingUp')
+def registro():
+    return render_template('registro.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
