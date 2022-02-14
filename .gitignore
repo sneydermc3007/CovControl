@@ -1,2 +1,8 @@
 # Carpeta JetBrains (Entorno)
 /.idea
+
+# Carpeta Cache (__pycache__)
+/__pycache__
+
+# Carpeta Data (Fotos)
+/static/data/b.jpg

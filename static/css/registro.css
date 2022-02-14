@@ -1,4 +1,146 @@
-body {
-    background: grey;
+.register-photo {
+    background: #16222A;
+    background: -webkit-linear-gradient(to right, #3A6073, #16222A);
+    background: linear-gradient(to right, #3A6073, #16222A);
+
+    padding: 60px 0;
+}
+
+.register-photo{
+    color: #ff9800;
+    /*overflow: hidden; Para quitar la barra de bajada */
+}
+
+.register-photo .form-container { /* Tamaño y ubicación */
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 7px 13px 37px #0db2d7;
+}
+
+.register-photo .image-holder { /* Muestra la imagen en el div */
+    display: table-cell;
+    width: auto;
+    background: url(../data/b.jpg);
+    background-size: cover;
+}
+
+.register-photo form { /* Permite la union div-form */
+    display: table-cell;
+    width: 400px;
+    background-color: #ffffff;
+    padding: 40px 50px;
+}
+
+.register-photo form h2 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+.form-container form{
+    background: #050506;
+    border: solid #fc7b00;
+}
+
+.form-control {
+    background: none;
+    border: solid #0db2d7;
+}
+
+.form-container a {
+    color: #11d3b8;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    color: #11d3b8;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.form-container .btn{
+    color: #11d3b8;
+    background: #fc7b00;
+}
+
+.custom-select {
+    background: none;
+    color: grey;
+    border: 2px dashed #11d3b8;
+    border-radius: 20px;
+}
+
+.input-group-text {
+    border: 1px solid #11d3b8;
+    background: none;
+    color: #fc7b00;
+    font-weight: bolder;
+    border-radius: 20px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container button[type="submit"] {
+    border-radius: 20px;
+    /*background: none;  SI no queremos que se vea lo blanco cuando seleccionamos algun input*/
     color: white;
+    transition: 0.55s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="number"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    width: 200px;
+    border-color: orangered;
+    color: black;
+    font-weight: bolder;
+}
+
+.form-container button[type="submit"]:hover {
+    background: none;
+    border: 2px solid orangered;
+}
+
+.bg-light {
+    background: #3A6073!important;
+    opacity: 0.9;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.navbar-light .navbar-brand {
+    color: #fc7b00;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #fc7b00;
+}
+
+.btn-link[type="button"]{
+    font-weight: bold;
+}
+
+.btn-link[type="button"]{
+    font-weight: bold;
+    color: #11d3b8;
+}
+
+.btn-link[type="button"]:hover{
+    background: #11d3b8;
+    color: #ffffff;
 }
