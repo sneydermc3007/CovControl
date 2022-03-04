@@ -6,3 +6,6 @@
 
 # Carpeta Data (Fotos)
 /static/data/a.jpg
+
+# Entorno virtual
+/entorno

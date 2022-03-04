@@ -110,7 +110,7 @@ section {
 
 /*Alternativa al body*/
 .snake {
-  padding: 189px;
+  padding: 180px;
   height: auto;
 }
 
