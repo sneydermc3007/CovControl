@@ -6,6 +6,11 @@ const routes = [
     path: '/Log_in',
     name: 'InicioSesion',
     component: InicioSesion
+  },
+  {
+    path: "/Sing_up",
+    name: 'Registro',
+    component: () => import('../components/Registro')
   }
 ];
 

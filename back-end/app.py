@@ -18,11 +18,10 @@ def inicioSesion():
     return "inicioSesion"
 
 
-"""
-@app.route('/SingUp')
+@app.route('/Sing_Up')
 def registro():
     return render_template('registro.html')
-"""
+
 
 if __name__ == '__main__':
     app.run()
