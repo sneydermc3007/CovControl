@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def inicioSesion():
 
 @app.route('/Sing_Up')
 def registro():
-    return render_template('registro.html')
+    return "registro"
 
 
 if __name__ == '__main__':
