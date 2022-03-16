@@ -1,27 +1,42 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
+    from urllib import response
+    from flask import Flask, jsonify, request, Response
+    from flask_pymongo import PyMongo
+    from bson import json_util
+    from bson.objectid import ObjectId
 
-app = Flask(__name__)
+    from werkzeug.security import generate_password_hash, check_password_hash
 
-app.config.from_object(__name__)
+    app = Flask(__name__)
 
-CORS(app, resources={r"/*": {'origin': "*"}})
-# CORS(app, resources={r"/*":{'origin': 'http://localhost:8080/',"allow_header":"Access-Control-Allow-Origin"}})
+    app.secret_key = 'myawesomesecretkey'
 
-# hello world route
-@app.route('/')
-def hola_mundo():
-    return "Hola mundo"
+    app.config['MONGO_URI'] = 'mongodb://database/pythonmongodb'
 
-@app.route('/Log_in', methods=['GET'])
-def inicioSesion():
-    return "inicioSesion"
+    mongo = PyMongo(app)
+
+    #REGISTOR DE USUARIOS U.CATOLICA
+    @app.route('/users', methods=['POST'])
+    def create_user():
+        # Receiving Data
+        username = request.json['username']  #-->ES LA CEDULA
+        email = request.json['email']
+        password = request.json['password']
+        
+        if username and email and password:
+            mongo.db.users.insert(
+                {'username': username, 'email': email, 'password':password}
+            )
+            response = {
+                'username': username,
+                'email': email,
+                'password': password
+            }
+            return response
+        else:
+            return {'message': 'received'}
 
 
-@app.route('/Sing_Up')
-def registro():
-    return "registro"
 
 
-if __name__ == '__main__':
-    app.run()
+    if __name__ == "__main__":
+        app.run(debug=True)
