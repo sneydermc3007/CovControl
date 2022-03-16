@@ -8,25 +8,25 @@
     <body>
       <div class="content">
 
-        <h3>Formulario Covid-19 <strong>UCLA</strong></h3>
+        <h3>Formulario Covid-19 <span>UCLA</span></h3>
 
         <div class="form-container">
           <section id="ask-1">
             <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" value="option1">
-              <label class="form-check-label">Si</label>
+              <input class="form-check-input" type="radio" name="answer_one" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Si</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" value="option2">
-              <label class="form-check-label">No</label>
+              <input class="form-check-input" type="radio" name="answer_one" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
           </section>
 
           <section id="ask-2">
             <h5>¿Cual de los siguientes sintomas ha presentado en el transcurso de estos 7 dias?</h5>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" value="option1">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
               <label class="form-check-label" for="inlineCheckbox1">Tos</label>
             </div>
             <div class="form-check form-check-inline">
@@ -34,48 +34,48 @@
               <label class="form-check-label" for="inlineCheckbox2">Dolor de garganta</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Dolor de cabeza</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox3">Dolor de cabeza</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Fiebre</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+              <label class="form-check-label" for="inlineCheckbox4">Fiebre</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Dolor muscular</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+              <label class="form-check-label" for="inlineCheckbox5">Dolor muscular</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Vomito</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
+              <label class="form-check-label" for="inlineCheckbox6">Vomito</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Diarrea</label>
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7">
+              <label class="form-check-label" for="inlineCheckbox7">Diarrea</label>
             </div>
           </section>
 
           <section id="ask-3">
             <h5>Durante el estado de alarma y hasta el dia de hoy ¿Has tenido Covid-19?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_two" value="option1" checked>
-              <label class="form-check-label"> Si </label>
+              <input class="form-check-input" type="radio" name="answer_two" id="inline_Radio1" value="option1" checked>
+              <label class="form-check-label" for="inline_Radio1"> Si </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_two" value="option2">
-              <label class="form-check-label"> No </label>
+              <input class="form-check-input" type="radio" name="answer_two" id="inline_Radio2" value="option2">
+              <label class="form-check-label" for="inline_Radio2"> No </label>
             </div>
           </section>
 
           <section id="ask-4">
             <h5>¿Convive usted con personas mayores de 60 años?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_five" value="option1">
-              <label class="form-check-label"> Si </label>
+              <input class="form-check-input" type="radio" name="answer_five" id="inline_Radio_1" value="option1">
+              <label class="form-check-label" for="inline_Radio_1"> Si </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_five" value="option2">
-              <label class="form-check-label"> No </label>
+              <input class="form-check-input" type="radio" name="answer_five" id="inline_Radio_2" value="option2">
+              <label class="form-check-label" for="inline_Radio_2"> No </label>
             </div>
           </section>
 
@@ -95,27 +95,27 @@
           <section id="ask-6">
             <h5>¿Utiliza alguno de los siguientes metodos para el cuidado personal para contrarrestar el Covid-19?</h5>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" value="option1">
-              <label class="form-check-label" for="inlineCheckbox1">Tapabocas</label>
+              <input class="form-check-input" type="checkbox" id="inline_Checkbox1" value="option1">
+              <label class="form-check-label" for="inline_Checkbox1">Tapabocas</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Gel</label>
+              <input class="form-check-input" type="checkbox" id="inline_Checkbox2" value="option2">
+              <label class="form-check-label" for="inline_Checkbox2">Gel</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Alcohol</label>
+              <input class="form-check-input" type="checkbox" id="inline_Checkbox3" value="option3">
+              <label class="form-check-label" for="inline_Checkbox3">Alcohol</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Lavado frecuente de manos</label>
+              <input class="form-check-input" type="checkbox" id="inline_Checkbox4" value="option4">
+              <label class="form-check-label" for="inline_Checkbox4">Lavado frecuente de manos</label>
             </div>
           </section>
 
-          <button type="submit">Enviar datos</button>
+          <button type="submit" >Enviar datos</button>
         </div>
       </div>
     </body>
@@ -135,13 +135,30 @@ export default {
   box-sizing: border-box;
 }
 
-body .content {
-  background: #141E30;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
+  background: #141E30;
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);
+  background: linear-gradient(to right, #243B55, #141E30);
+
+  min-height: 100vh;
   color: white;
-  padding: 0 1.5em;
+
+  padding-top: 30px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+h3 {
+  text-align: center;
+  font-size: 3em;
+}
+
+h3 span {
+  color: #42b983;
+  font-weight: bold;
 }
 
 .form-container {
@@ -149,40 +166,146 @@ body .content {
   margin-left: auto;
   margin-right: auto;
   padding: 1.5em;
+
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+
+  background: #212c40;
 }
 
-#ask-1 {
-  border: solid #00ff00;
-  margin: 12px;
+.form-container > * {
+  padding: 1em;
 }
 
-#ask-2 {
-  border: dashed 3px #40f2fe;
-  margin: 12px;
+select {
+  color: #42b983;
+  font-family:"Script MT Bold", cursive;
+  font-size: medium;
 }
 
-#ask-3 {
-  border: dashed 3px #00ff00;
-  margin: 12px;
+.custom-select:focus {
+  width: 50%;
+  transition: 0.5s;
+  color: #0db2d7;
+  background: none;
 }
 
-#ask-4 {
-  border: solid #40f2fe;
-  margin: 12px;
+#ask-1 input[type=radio],
+#ask-3 input[type=radio],
+#ask-4 input[type=radio]{
+  display: none;
 }
 
-#ask-5 {
-  border: dashed 3px #00ff00;
-  margin: 12px;
+#ask-1 .form-check-label,
+#ask-3 .form-check-label,
+#ask-4 .form-check-label{
+  color: #ffffff;
+  width: 10%;
+  background: #212c40;
+  padding: 5px 15px 5px 60px;
+  display: inline-block;
+  position: relative;
+  font-size: 1em;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-#ask-6 {
-  border: solid #40f2fe;
-  margin: 12px;
+#ask-1 .form-check-label:hover,
+#ask-3 .form-check-label:hover,
+#ask-4 .form-check-label:hover{
+  background: rgba(0,166,217,0.2);
 }
 
-button {
-  width: 90px;
-  margin-left: 45%;
+#ask-1 .form-check-label:before,
+#ask-3 .form-check-label:before,
+#ask-4 .form-check-label:before{
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: transparent;
+  border: 3px solid #00cbab;
+  position: absolute;
+  left: 20px;
+  top: 4px;
+  border-radius: 20px;
+}
+
+#ask-1 input[type=radio]:checked + label,
+#ask-3 input[type=radio]:checked + label,
+#ask-4 input[type=radio]:checked + label{
+  padding: 5px 15px;
+  background: #42b983;
+  border-radius: 2px;
+  color: white;
+}
+
+#ask-1 input[type=radio]:checked + label:before,
+#ask-3 input[type=radio]:checked + label:before,
+#ask-4 input[type=radio]:checked + label:before {
+  display: none;
+}
+
+#ask-2 input[type=checkbox],
+#ask-6 input[type=checkbox]{
+  display: none;
+}
+
+#ask-2 input[type=checkbox] + label,
+#ask-6 input[type=checkbox] + label{
+  cursor: pointer;
+}
+
+#ask-2 label:before,
+#ask-6 label:before{
+  content: "";
+  background: transparent;
+  border: 3px solid #42b983;
+  border-radius: 5px;
+  display: inline-block;
+  height: 20px;
+  margin-right: 8px;
+  text-shadow: 2px -2px 3px gray;
+  text-align: center;
+  vertical-align: center;
+  width: 20px;
+}
+
+#ask-2 input[type=checkbox]:checked + label:before,
+#ask-6 input[type=checkbox]:checked + label:before{
+  content: '✓';
+  font-size: 13px;
+  color: #11d3b8;
+}
+
+.form-container label,
+.form-container select{
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #40f2fe;
+}
+
+.content button[type=submit] {
+  background: #42b983;
+  border-radius: 15px;
+  padding: .7em;
+  color: white;
+  border-color: #39d9bd;
+  box-shadow: 0 0 20px 0 rgb(30 217 213 / 65%);
+  width: 30%;
+  margin-top: 5px;
+  margin-left: 35%;
+}
+
+.content button[type=submit]:hover {
+  background: none;
+  transition: 0.4s;
+  border: 2px solid #10e0f6;
+  font-weight: bolder;
+  color: #42b983;
 }
 </style>
