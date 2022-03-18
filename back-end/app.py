@@ -26,6 +26,7 @@ def create_user():
     lastname = request.json['lastname']
     gender = request.json['gender']
     number = request.json['number']
+    program = request.json['program]
 
     return {'message': 'received'}
 
@@ -35,11 +36,6 @@ def login():
     #Looking for data
     username = request.json['username'] #---->Esta es la cedula
     password = request.json['password']
-    email = request.json['email']
-    firstname = request.json['firstname']
-    lastname = request.json['lastname']
-    gender = request.json['gender']
-    number = request.json['number']
 
     return {'message': 'received'}
 ###GET,PUT, DELETE
