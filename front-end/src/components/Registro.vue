@@ -38,22 +38,25 @@
           <form>
             <h2 class="text-center"><strong>Registro</strong> de usuarios.</h2>
 
-            <div class="form-group"><input class="form-control" type="text" name="name-one" placeholder="Ingrese su Primer Nombre"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Segundo Nombre"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Primer Apellido"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Segundo Apellido"></div>
+            <div class="form-group">
+              <input v-model="firts_name" class="form-control" type="text" name="firts_name" placeholder="Ingrese su Primer Nombre" id="firts_name">
+              <p> Prueba de captura: {{firts_name}} </p>
+            </div>
+            <div class="form-group"><input class="form-control" type="text" name="second_name" placeholder="Ingrese su Segundo Nombre" id="second_name"></div>
+            <div class="form-group"><input class="form-control" type="text" name="first_surname" placeholder="Ingrese su Primer Apellido" id="first_surname"></div>
+            <div class="form-group"><input class="form-control" type="text" name="second_surname" placeholder="Ingrese su Segundo Apellido" id="second_surname"></div>
 
             <div class="form-group">
               <label class="text-center" for="born"> <strong>Seleccione su fecha de nacimiento</strong></label>
-              <input class="form-control" type="date" name="born">
+              <input class="form-control" type="date" name="born" id="born">
             </div>
 
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+                  <label class="input-group-text" for="sex">Opciones</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="sex">
                   <option disabled selected hidden>Escoja su sexo...</option>
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
@@ -62,10 +65,10 @@
               </div>
             </div>
 
-            <div class="form-group"><input class="form-control" type="number" name="phone" placeholder="Ingrese su Numero"></div>
-            <div class="form-group"><input class="form-control" type="email" placeholder="Ingrese su Correo"/></div>
-            <div class="form-group"><input class="form-control" type="password" placeholder="Ingrese una Contraseña"/></div>
-            <div class="form-group"><input class="form-control" type="password" placeholder="Repita la Contraseña"/></div>
+            <div class="form-group"><input class="form-control" type="number" name="phone" placeholder="Ingrese su Numero" id="number"></div>
+            <div class="form-group"><input class="form-control" type="email" placeholder="Ingrese su Correo" id="email"></div>
+            <div class="form-group"><input class="form-control" type="password" placeholder="Ingrese una Contraseña" id="password"></div>
+            <div class="form-group"><input class="form-control" type="password" placeholder="Repita la Contraseña" id="verify_password"></div>
 
             <div class="form-group"><button class="btn btn-block" type="submit">Sign Up</button></div>
             <a class="already" href="/">Ya cuentas con una cuenta? Entra aquí.</a>
@@ -77,9 +80,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Registro"
+  name: "Registro",
+  data(){
+    return {
+      firts_name: this.firts_name,
+    };
+  },
+  methods: {
+    getResponse(){
+      const path = 'http://localhost:5000/Sing_Up'
+      axios.get(path).then((res) => {
+        console.log(res.data)
+        this.firts_name = res.data;
+        console.log("hols");
+      })
+      .catch((err) => { console.error(err); });
+    }
+  },
+  created() {
+    this.getResponse()
+  }
 }
 </script>
 
