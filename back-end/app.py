@@ -26,7 +26,7 @@ def create_user():
     lastname = request.json['lastname']
     gender = request.json['gender']
     number = request.json['number']
-    program = request.json['program]
+    program = request.json['program']
 
     return {'message': 'received'}
 
