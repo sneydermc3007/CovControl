@@ -23,6 +23,7 @@ def create_user():
     password = request.json['password']
     email = request.json['email']
     firstname = request.json['firstname']
+    secondname = request.json['secondname']
     lastname = request.json['lastname']
     gender = request.json['gender']
     number = request.json['number']
