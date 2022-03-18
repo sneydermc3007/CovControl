@@ -20,10 +20,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="btn btn-link px-3 me-2" href="/" type="button">Inicio de Sesion</a>
+              <a class="btn btn-link px-3 me-2" href="/Log_in" type="button">Inicio de Sesion</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-link px-3 me-2" href="/" type="button">Registro</a>
+              <a class="btn btn-link px-3 me-2" href="/Sing_up" type="button">Registro</a>
             </li>
           </ul>
         </div>
@@ -83,8 +83,7 @@ export default {
   created() {
     this.getResponse();
   }
-}
-*/
+}*/
 </script>
 
 <style scoped>

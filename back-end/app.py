@@ -1,77 +1,57 @@
-from urllib import response
-from flask import Flask, jsonify, request, Response
-from flask_pymongo import PyMongo
-from bson import json_util 
-from bson.objectid import ObjectId
-from pymongo import MongoClient
-
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
 
-#app.secret_key = 'myawesomesecretkey'
+app.config.from_object(__name__)
 
-#app.config['MONGO_URI'] = 'mongodb://database/pythonmongodb'
-
-#mongo = PyMongo(app)
+CORS(app, resources={r"/*": {'origin': "*"}})
 
 
-@app.route('/registro', methods = ['POST'])
+@app.route('/Sing_Up', methods=["POST"])
 def create_user():
-    #Receiving data
-    username = request.json['username'] #---->Esta es la cedula
-    password = request.json['password']
-    email = request.json['email']
-    firstname = request.json['firstname']
-    secondname = request.json['secondname']
-    lastname = request.json['lastname']
-    gender = request.json['gender']
-    number = request.json['number']
-    program = request.json['program']
+    #  Receiving datas
+    print("Ok")
+    print(request.json)
+    #   print(request.json['test'])
 
-    return {'message': 'received'}
+    try:
+        first_name = request.json['first_name']
+        secondname = request.json['second_name']
+        first_surname = request.json['first_surname']
+        second_surname = request.json['second_surname']
+        born = request.json['born']
+        sex = request.json['sex']
+        number = request.json['number']
+        email = request.json['email']
+        password = request.json['password']
+        verify_password = request.json['verify_password']
 
+        return jsonify({'message': 'received'})
 
-@app.route('/login', methods = ['GET'])
-def login():
-    #Looking for data
-    username = request.json['username'] #---->Esta es la cedula
-    password = request.json['password']
-
-    return {'message': 'received'}
-###GET,PUT, DELETE
-
-
-    
-
-""""
-    if username and password and email:
-        hashed_password = generate_password_hash(password)
-        id = mongo.db.users.insert(
-            {'username': username, 'password': hashed_password, 'email': email}
-        )
-        response = {
-            'id': str(id),
-            'username': username,
-            'password': hashed_password,
-            'email': email,
-            #firstname = request.json['firstname]
-            #lastname = request.json['lastname']
-            #gender = request.json['gender]
-            #number = request.json['number']
-        }
-        return response
-
-    else:
-        return {'message': 'received'}
-
-
-
-
-    
+    except Exception as ex:
+        print(ex)
+        print('Hola')
+        return jsonify({'Error': 'El procesamiento de datos'})
 
 
 """
+@app.route('/Log_in', methods=['POST'])
+def login():
+    # Looking for data
+
+    cedula = request.json['cedula']
+    carrera = request.json['carrera']
+    password = request.json['password']
+
+    return {'message': 'received'}
+"""
+
+def pag_no_found(error):
+    print(error)
+    return "<h1> La pagina que intentas acceder no existe, verifica la ruta! </h1>"
+
 
 if __name__ == "__main__":
-        app.run(debug=True)
+    app.register_error_handler(404, pag_no_found)
+    app.run(debug=True)
