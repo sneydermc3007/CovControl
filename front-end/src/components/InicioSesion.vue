@@ -33,7 +33,7 @@
         <form action="InicioSesion.vue" class="form-box animated fadeInUp">
           <h1 class="form-title"> Inicio de sesion</h1>
 
-          <input type="text" placeholder="Cedula">
+          <input type="text" placeholder="Correo">
             <label for="carrera"> Selecciona tu carrera: </label>
                 <select required id="carrera">
                   <option value="" disabled selected hidden> Escoge una opción...</option>
