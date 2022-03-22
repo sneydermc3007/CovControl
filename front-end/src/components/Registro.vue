@@ -108,16 +108,16 @@ export default {
     return {
       submited: false,
       registro: {
-        first_name: 'Juan',
-        second_name: 'Jose',
-        first_surname: 'Mazo',
-        second_surname: 'Acevedo',
-        born: '2002-01-20',
-        sex: 1,
-        number: 3046624854,
-        email: 'juan.mazoac@amigo.edu.co',
-        password: '111',
-        verify_password: '111'
+        first_name: '',
+        second_name: '',
+        first_surname: '',
+        second_surname: '',
+        born: '',
+        sex: '',
+        number: '',
+        email: '',
+        password: '',
+        verify_password: ''
       }
     }
   },
