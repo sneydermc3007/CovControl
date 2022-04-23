@@ -30,60 +30,60 @@
       </nav>
 
       <section class="snake">
-        <form action="InicioSesion.vue" class="form-box animated fadeInUp">
+        <form action="InicioSesion.vue" class="form-box animated fadeInUp" v-on:submit.prevent="getConsulta();">
           <h1 class="form-title"> Inicio de sesion</h1>
 
-          <input type="text" placeholder="Correo">
-            <label for="carrera"> Selecciona tu carrera: </label>
-                <select required id="carrera">
-                  <option value="" disabled selected hidden> Escoge una opción...</option>
-                  <option value="0">Arquitectura</option>
-                  <option value="1">Ingeniería Civil</option>
-                  <option value="2">Ingeniería de Sistemas</option>
-                  <option value="3">Ingeniería Industrial</option>
-                </select>
-
-          <input type="password" placeholder="Password">
+          <input v-model="consulta.email" type="text" placeholder="Correo" name="email" id="email">
+          <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass">
           <button type="submit">Login</button>
         </form>
       </section>
     </body>
-
-    <!-- Establecimiento de la conexion con el back-end en el html*
-    <div>
-      <h1>Hola Mundo</h1>
-      <p> {{ msg }}</p>
-    </div> -->
   </html>
 </template>
 
-
 <script>
-/* Conexion con back-end
-import axios from 'axios'
+  import axios from 'axios';
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "InicioSesion",
   data() {
     return {
-      msg: ""
+      submited: false,
+      consulta: {
+        email: '',
+        pass: '',
+      }
     };
   },
   methods: {
-    getResponse(){
-      const path = 'http://localhost:5000/Log_in';
-      axios.get(path)
-      .then((res) => {
-        console.log(res.data)
-        this.msg = res.data;
-      })
-      .catch((err) => { console.error(err); });
+    getConsulta(){
+      console.log("Capturando datos");
+
+      let variables = {
+        email: this.consulta.email,
+        pass: this.consulta.pass
+
+      }
+      console.log(variables);
+
+      axios.get('http://127.0.0.1:5000/Log_in', variables)
+          .then((response) => { console.log("Datos capturados")
+            if(response.data.status === "OK"){
+              console.log("Datos capturados");
+              console.log(response)
+              this.submited = true;
+              document.form.reset()
+              this.$router.push('/Log_in?s=1')
+            }
+      }).catch((error) => {
+        console.error("Error al capturar datos");
+        console.error(error);
+      });
     }
-  },
-  created() {
-    this.getResponse();
   }
-}*/
+};
 </script>
 
 <style scoped>
@@ -115,7 +115,7 @@ section {
 
 .form-box {
   width: 450px;
-  height: 530px;
+  height: 350px;
   padding: 45px;
   background: #1c223e;
   text-align: center;
@@ -150,21 +150,8 @@ label {
   transition: 0.25s;
 }
 
-#carrera {
-  color: grey;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
-  border: solid #3742fa;
-  width: 250px;
-  outline: none;
-  border-radius: 30px;
-}
-
 .form-box input[type="text"]:focus,
-.form-box input[type="password"]:focus,
-#carrera:focus {
+.form-box input[type="password"]:focus{
   width: 270px;
   border-color: white;
 }

@@ -31,21 +31,18 @@ def create_user():
 
     except Exception as ex:
         print(ex)
-        print('Hola')
         return jsonify({'Error': 'El procesamiento de datos'})
 
 
-"""
 @app.route('/Log_in', methods=['POST'])
 def login():
     # Looking for data
 
-    cedula = request.json['cedula']
-    carrera = request.json['carrera']
-    password = request.json['password']
+    correo = request.json['email']
+    password = request.json['pass']
 
-    return {'message': 'received'}
-"""
+    return jsonify({'message': 'received'})
+
 
 def pag_no_found(error):
     print(error)
