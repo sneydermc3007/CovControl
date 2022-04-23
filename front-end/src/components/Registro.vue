@@ -65,7 +65,7 @@
                   <label class="input-group-text" for="sex">Opciones</label>
                 </div>
                 <select v-model="registro.sex" class="custom-select" id="sex">
-                  <option disabled selected hidden>Escoja su sexo...</option>
+                  <option disabled hidden value=""> Seleccione su sexo... </option>
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
                   <option value="3">No Binario</option>
@@ -236,11 +236,10 @@ b, strong {
   background: #fc7b00;
 }
 
-.custom-select {
+#sex.custom-select {
   background: none;
   color: grey;
   border: 2px dashed #11d3b8;
-  border-radius: 20px;
 }
 
 .input-group-text {
