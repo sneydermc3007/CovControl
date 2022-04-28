@@ -13,7 +13,6 @@ def create_user():
     #  Receiving datas
     print("Ok")
     print(request.json)
-    #   print(request.json['test'])
 
     try:
         first_name = request.json['first_name']
@@ -33,16 +32,19 @@ def create_user():
         print(ex)
         return jsonify({'Error': 'El procesamiento de datos'})
 
-
-@app.route('/Log_in', methods=['POST'])
+@app.route('/Log_in', methods=['GET', "POST"])
 def login():
-    # Looking for data
+    print(request.json)
 
-    correo = request.json['email']
-    password = request.json['pass']
+    try:
+        email = request.json['email']
+        password = request.json['pass']
 
-    return jsonify({'message': 'received'})
+        return jsonify({'message': 'received'})
 
+    except Exception as ex:
+        print(ex)
+        return jsonify({'Error': 'En el momento de traer el usuario'})
 
 def pag_no_found(error):
     print(error)

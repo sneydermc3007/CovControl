@@ -38,12 +38,15 @@
 		},
 		{
 			"name": "Log_in",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cedula\": \"1007121746\",\r\n    \"carrera\": \"Ingenieria de Sistemas\",\r\n    \"password\": \"12345678JJMA\"\r\n}",
+					"raw": "{\r\n    \"email\": \"sneyder.martinezca@amigo.edu.co\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -64,21 +64,17 @@ export default {
       let variables = {
         email: this.consulta.email,
         pass: this.consulta.pass
-
       }
       console.log(variables);
 
-      axios.get('http://127.0.0.1:5000/Log_in', variables)
-          .then((response) => { console.log("Datos capturados")
-            if(response.data.status === "OK"){
-              console.log("Datos capturados");
-              console.log(response)
-              this.submited = true;
-              document.form.reset()
-              this.$router.push('/Log_in?s=1')
-            }
+      //con axios.get no funciona el envío de datos, ni tampoco con params "{params: variables}"
+      axios.post('http://127.0.0.1:5000/Log_in', variables)
+          .then((response) => { console.log("Respuesta: ", response);
+        if(response.status === 200){
+          console.log("Datos enviados");
+        }
       }).catch((error) => {
-        console.error("Error al capturar datos");
+        console.error("Error al capturar el usuario")
         console.error(error);
       });
     }
