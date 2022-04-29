@@ -30,12 +30,28 @@
       </nav>
 
       <section class="snake">
-        <form action="InicioSesion.vue" v-on:submit.prevent="getConsulta();" class="form-box animated fadeInUp">
+        <form class="form-box animated fadeInUp" v-on:submit.prevent="getConsultaUser">
           <h1 class="form-title"> Inicio de sesion</h1>
 
-          <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email">
+          <div class="correo">
+            <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email"
+                   :class="{'is-invalid': submited && v$.consulta.email.$error }">
+            <div v-if="submited && v$.consulta.email.$error" class="invalid-feedback">
+              El correo es requerido
+              <span v-if="!v$.consulta.email.required">Email is required</span>
+              <span v-if="!v$.consulta.email.email">Email is invalid</span>
+            </div>
+          </div>
 
-          <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass">
+          <div class="contraseña">
+            <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass"
+                   :class="{'is-invalid': submited && v$.consulta.pass.$error }">
+            <div v-if="submited && v$.consulta.pass.$error" class="invalid-feedback">
+              La contraseña es requerida
+              <span v-if="!v$.consulta.pass.required">Password is required</span>
+              <span v-if="!v$.consulta.pass.minLength">Password is too short</span>
+            </div>
+          </div>
 
           <button type="submit">Login</button>
         </form>
@@ -52,6 +68,7 @@
   export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "InicioSesion",
+  setup() { return { v$: useValidate() } },
   data() {
     return {
       $v: useValidate(),
@@ -67,28 +84,36 @@
         email: { required, email },
         pass: { required, minLength: minLength(8) },
       }
-  },
-  methods: {
-    getConsulta(){
-      console.log("Capturando datos");
-      let variables = {
-        email: this.consulta.email,
-        pass: this.consulta.pass
-      }
-      console.log(variables);
-
-      axios.post('http://127.0.0.1:5000/Log_in', variables)
-        .then((response) => { console.log("Respuesta: ", response);
-          if(response.status === 200){
-            console.log("Datos enviados");
-          }
-        }).catch((error) => {
-          console.error("Error al capturar el usuario")
-          console.error(error);
-        });
     },
+    methods: {
+      getConsultaUser() {
+        this.submited = true;
+        this.v$.$touch();
 
-  }
+        if (this.v$.$invalid) {
+          console.log('invalid');
+        }else {
+          console.log('Campos validos');
+          console.log("Capturando datos");
+
+          let variables = {
+            email: this.consulta.email,
+            pass: this.consulta.pass
+          };
+          console.log(variables);
+          axios.post('http://127.0.0.1:5000/Log_in', variables)
+            .then((response) => { console.log("Respuesta:", response);
+              if (response.data.status === "OK") {
+                console.log("Usuario logueado");
+                //window.location.href = "/";
+              }})
+            .catch((error) =>{
+                console.error("Error al capturar el usuario")
+                console.error(error);
+            });
+        }
+      }
+    }
 };
 </script>
 
@@ -126,8 +151,8 @@ section {
 }
 
 .form-box {
-  width: 450px;
-  height: 380px;
+  width: 430px;
+  height: 440px;
   padding-top: 45px;
   background: #1c223e;
   text-align: center;
@@ -201,5 +226,10 @@ label {
 
 .navbar.navbar-expand-lg.navbar-light{
   opacity: 0.9;
+}
+
+.invalid-feedback{
+  color: orange;
+  font-weight: bold;
 }
 </style>
