@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-
 import json
 from multiprocessing import set_forkserver_preload
 from flask_sqlalchemy import SQLAlchemy
@@ -31,7 +30,7 @@ class registro(db.Model): #Falta el dato de verificacion
     password = db.Column(db.String(50))
 
     #Falta el dato de verificacion y el id sobra
-    def __init__(self, id, firstname, sencondname, lastname,
+    def __init__(self, id,firstname, sencondname, lastname,
                     secondlastname, born,gender,number,email, password):
         self.id = id
         self.firstname = firstname
@@ -55,13 +54,14 @@ class RegistroSchema(ma.Schema):
 registro_schema = RegistroSchema()
 registros_schema = RegistroSchema(many=True)
 
-@app.route('/Sing_Up', methods=["POST"])
+@app.route('/Sing_Up', methods=['POST'])
 def create_user():
     #  Receiving datas
     print("Ok")
     print(request.json)
 
     try:
+        id = request.json['id']
         first_name = request.json['first_name']
         secondname = request.json['second_name']
         first_surname = request.json['first_surname']
@@ -72,7 +72,13 @@ def create_user():
         email = request.json['email']
         password = request.json['password']
 
-        return jsonify({'message': 'received'})
+        new_registro = registro(id,first_name, secondname, first_surname,
+                    second_surname, born, sex, number, email, password)
+
+        db.session.add(new_registro)
+        db.session.commit()
+
+        return registro_schema.jsonify(new_registro)
 
     except Exception as ex:
         print(ex)
