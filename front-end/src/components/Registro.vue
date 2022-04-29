@@ -163,7 +163,6 @@ export default {
   background: -webkit-linear-gradient(to right, #3A6073, #16222A);
   background: linear-gradient(to right, #3A6073, #16222A);
 
-  //background: url(/src/assets/d.jpeg);
   background-size: cover;
 
   padding: 60px 0;

@@ -32,7 +32,7 @@ def create_user():
         print(ex)
         return jsonify({'Error': 'El procesamiento de datos'})
 
-@app.route('/Log_in', methods=['GET', "POST"])
+@app.route('/Log_in', methods=["POST"])
 def login():
     print(request.json)
 

@@ -30,11 +30,13 @@
       </nav>
 
       <section class="snake">
-        <form action="InicioSesion.vue" class="form-box animated fadeInUp" v-on:submit.prevent="getConsulta();">
+        <form action="InicioSesion.vue" v-on:submit.prevent="getConsulta();" class="form-box animated fadeInUp">
           <h1 class="form-title"> Inicio de sesion</h1>
 
-          <input v-model="consulta.email" type="text" placeholder="Correo" name="email" id="email">
+          <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email">
+
           <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass">
+
           <button type="submit">Login</button>
         </form>
       </section>
@@ -44,45 +46,59 @@
 
 <script>
   import axios from 'axios';
+  import useValidate from '@vuelidate/core';
+  import { required, email, minLength } from 'vuelidate/lib/validators';
 
-export default {
+  export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "InicioSesion",
   data() {
     return {
-      submited: false,
+      $v: useValidate(),
       consulta: {
-        email: '',
-        pass: '',
-      }
+        email: null,
+        pass: null,
+      },
+      submited: false
     };
+  },
+  validations: {
+      consulta: {
+        email: { required, email },
+        pass: { required, minLength: minLength(8) },
+      }
   },
   methods: {
     getConsulta(){
       console.log("Capturando datos");
-
       let variables = {
         email: this.consulta.email,
         pass: this.consulta.pass
       }
       console.log(variables);
 
-      //con axios.get no funciona el envío de datos, ni tampoco con params "{params: variables}"
       axios.post('http://127.0.0.1:5000/Log_in', variables)
-          .then((response) => { console.log("Respuesta: ", response);
-        if(response.status === 200){
-          console.log("Datos enviados");
-        }
-      }).catch((error) => {
-        console.error("Error al capturar el usuario")
-        console.error(error);
-      });
-    }
+        .then((response) => { console.log("Respuesta: ", response);
+          if(response.status === 200){
+            console.log("Datos enviados");
+          }
+        }).catch((error) => {
+          console.error("Error al capturar el usuario")
+          console.error(error);
+        });
+    },
+
   }
 };
 </script>
 
 <style scoped>
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
 
 section, html {
   height: 100%;
@@ -105,14 +121,14 @@ section {
 
 /*Alternativa al body*/
 .snake {
-  padding: 180px;
+  padding: 130px;
   height: auto;
 }
 
 .form-box {
   width: 450px;
-  height: 350px;
-  padding: 45px;
+  height: 380px;
+  padding-top: 45px;
   background: #1c223e;
   text-align: center;
 }
@@ -131,7 +147,7 @@ label {
   padding-bottom: 1px;
 }
 
-.form-box input[type="text"],
+.form-box input[type="email"],
 .form-box input[type="password"],
 .form-box button[type="submit"] {
   background: none;
@@ -146,7 +162,7 @@ label {
   transition: 0.25s;
 }
 
-.form-box input[type="text"]:focus,
+.form-box input[type="email"]:focus,
 .form-box input[type="password"]:focus{
   width: 270px;
   border-color: white;
