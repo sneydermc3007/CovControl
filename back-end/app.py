@@ -61,7 +61,6 @@ def create_user():
     print(request.json)
 
     try:
-        
         first_name = request.json['first_name']
         secondname = request.json['second_name']
         first_surname = request.json['first_surname']

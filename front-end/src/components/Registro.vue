@@ -21,10 +21,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="btn btn-link px-3 me-2" href="/" type="button">Inicio de Sesion</a>
+                <a class="btn btn-link px-3 me-2" href="/Log_in" type="button">Inicio de Sesion</a>
               </li>
               <li class="nav-item active">
-                <a class="btn btn-link px-3 me-2" href="/" type="button">Registro</a>
+                <a class="btn btn-link px-3 me-2" href="/Sing_up" type="button">Registro</a>
               </li>
             </ul>
           </div>
@@ -35,40 +35,62 @@
         <div class="form-container">
           <div class="image-holder"></div>
 
-          <form>
+          <form name="form" id="form" v-on:submit.prevent="procesar();">
             <h2 class="text-center"><strong>Registro</strong> de usuarios.</h2>
 
-            <div class="form-group"><input class="form-control" type="text" name="name-one" placeholder="Ingrese su Primer Nombre"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Segundo Nombre"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Primer Apellido"></div>
-            <div class="form-group"><input class="form-control" type="text" name="name-two" placeholder="Ingrese su Segundo Apellido"></div>
+            <div class="form-group">
+              <input v-model="registro.first_name" class="form-control" type="text" name="first_name" placeholder="Ingrese su Primer Nombre" id="first_name" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.second_name" class="form-control" type="text" name="second_name" placeholder="Ingrese su Segundo Nombre" id="second_name">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.first_surname" class="form-control" type="text" name="first_surname" placeholder="Ingrese su Primer Apellido" id="first_surname">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.second_surname" class="form-control" type="text" name="second_surname" placeholder="Ingrese su Segundo Apellido" id="second_surname">
+            </div>
 
             <div class="form-group">
               <label class="text-center" for="born"> <strong>Seleccione su fecha de nacimiento</strong></label>
-              <input class="form-control" type="date" name="born">
+              <input v-model="registro.born" class="form-control" type="date" name="born" id="born">
             </div>
 
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+                  <label class="input-group-text" for="sex">Opciones</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option disabled selected hidden>Escoja su sexo...</option>
+                <select v-model="registro.sex" class="custom-select" id="sex">
+                  <option disabled hidden value=""> Seleccione su sexo... </option>
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
-                  <option value="3">Binario</option>
+                  <option value="3">No Binario</option>
                 </select>
               </div>
             </div>
 
-            <div class="form-group"><input class="form-control" type="number" name="phone" placeholder="Ingrese su Numero"></div>
-            <div class="form-group"><input class="form-control" type="email" placeholder="Ingrese su Correo"/></div>
-            <div class="form-group"><input class="form-control" type="password" placeholder="Ingrese una Contraseña"/></div>
-            <div class="form-group"><input class="form-control" type="password" placeholder="Repita la Contraseña"/></div>
+            <div class="form-group">
+              <input v-model.number="registro.number" class="form-control" type="number" name="phone" placeholder="Ingrese su Numero" id="number">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.email" class="form-control" type="email" placeholder="Ingrese su Correo" id="email">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.password" class="form-control" type="password" placeholder="Ingrese una Contraseña" id="password">
+            </div>
+
+            <div class="form-group">
+              <input v-model="registro.verify_password" class="form-control" type="password" placeholder="Repita la Contraseña" id="verify_password">
+            </div>
 
             <div class="form-group"><button class="btn btn-block" type="submit">Sign Up</button></div>
-            <a class="already" href="/">Ya cuentas con una cuenta? Entra aquí.</a>
+            <a class="already" href="/Log_in">Ya cuentas con una cuenta? Entra aquí.</a>
           </form>
         </div>
       </section>
@@ -77,9 +99,60 @@
 </template>
 
 <script>
+ import axios from 'axios';
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Registro"
+  name: "Registro",
+  data () {
+    return {
+      submited: false,
+      registro: {
+        first_name: '',
+        second_name: '',
+        first_surname: '',
+        second_surname: '',
+        born: '',
+        sex: '',
+        number: '',
+        email: '',
+        password: '',
+        verify_password: ''
+      }
+    }
+  },
+  methods: {
+    procesar() {
+      console.log("Capturando datos")
+
+      let parametros = {
+        first_name: this.registro.first_name,
+        second_name: this.registro.second_name,
+        first_surname: this.registro.first_surname,
+        second_surname: this.registro.second_surname,
+        born: this.registro.born,
+        sex: this.registro.sex,
+        number: this.registro.number,
+        email: this.registro.email,
+        password: this.registro.password,
+        verify_password: this.registro.verify_password
+
+    }
+    console.info(parametros)
+
+      axios.post('http://127.0.0.1:5000/Sing_Up', parametros)
+            .then((response) => { console.log("Vas bien")
+            if(response.status === 200){
+                console.log(response);
+                document.form.reset();
+                this.$router.push('/Sing_Up?s=1');
+            }
+          }).catch((err) => {
+            console.error("F equipo")
+            console.error(err);
+      })
+    }
+  }
 }
 </script>
 
@@ -90,7 +163,6 @@ export default {
   background: -webkit-linear-gradient(to right, #3A6073, #16222A);
   background: linear-gradient(to right, #3A6073, #16222A);
 
-  //background: url(/src/assets/d.jpeg);
   background-size: cover;
 
   padding: 60px 0;
@@ -163,11 +235,10 @@ b, strong {
   background: #fc7b00;
 }
 
-.custom-select {
+#sex.custom-select {
   background: none;
   color: grey;
   border: 2px dashed #11d3b8;
-  border-radius: 20px;
 }
 
 .input-group-text {

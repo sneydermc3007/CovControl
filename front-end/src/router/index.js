@@ -3,6 +3,10 @@ import InicioSesion from "@/components/InicioSesion";
 
 const routes = [
   {
+    path: '/',
+    redirect: '/Log_in'
+  },
+  {
     path: '/Log_in',
     name: 'InicioSesion',
     component: InicioSesion
