@@ -37,7 +37,7 @@
             <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email"
                    :class="{'is-invalid': submited && v$.consulta.email.$error }">
             <div v-if="submited && v$.consulta.email.$error" class="invalid-feedback">
-              El correo es requerido
+              El correo es requerido y/o invalido
               <span v-if="!v$.consulta.email.required">Email is required</span>
               <span v-if="!v$.consulta.email.email">Email is invalid</span>
             </div>
@@ -49,7 +49,7 @@
             <div v-if="submited && v$.consulta.pass.$error" class="invalid-feedback">
               La contraseña es requerida
               <span v-if="!v$.consulta.pass.required">Password is required</span>
-              <span v-if="!v$.consulta.pass.minLength">Password is too short</span>
+              <span v-if="!v$.consulta.pass.min">Password is too short</span>
             </div>
           </div>
 
@@ -92,7 +92,9 @@
 
         if (this.v$.$invalid) {
           console.log('invalid');
-        }else {
+          alert('Por favor, llene todos los campos correctamente');
+        }
+        else {
           console.log('Campos validos');
           console.log("Capturando datos");
 
