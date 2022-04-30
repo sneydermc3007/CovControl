@@ -30,9 +30,9 @@ class registro(db.Model): #Falta el dato de verificacion
     password = db.Column(db.String(50))
 
     #Falta el dato de verificacion y el id sobra
-    def __init__(self, id,firstname, sencondname, lastname,
+    def __init__(self,firstname, sencondname, lastname,
                     secondlastname, born,gender,number,email, password):
-        self.id = id
+        #self.id = id
         self.firstname = firstname
         self.secondname =  sencondname
         self.lastname = lastname
@@ -48,7 +48,7 @@ db.create_all()
 
 class RegistroSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'firstname', 'secondname', 'lastname', 'secondlastname',
+        fields = ( 'firstname', 'secondname', 'lastname', 'secondlastname',
                     'born', 'gender', 'number', 'email', 'password')
 
 registro_schema = RegistroSchema()
@@ -61,7 +61,7 @@ def create_user():
     print(request.json)
 
     try:
-        id = request.json['id']
+        
         first_name = request.json['first_name']
         secondname = request.json['second_name']
         first_surname = request.json['first_surname']
@@ -72,7 +72,7 @@ def create_user():
         email = request.json['email']
         password = request.json['password']
 
-        new_registro = registro(id,first_name, secondname, first_surname,
+        new_registro = registro(first_name, secondname, first_surname,
                     second_surname, born, sex, number, email, password)
 
         db.session.add(new_registro)
