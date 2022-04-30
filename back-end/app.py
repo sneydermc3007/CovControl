@@ -1,14 +1,60 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
+from multiprocessing import set_forkserver_preload
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/flaskmysql'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config.from_object(__name__)
 
 CORS(app, resources={r"/*": {'origin': "*"}})
 
+db = SQLAlchemy(app)
+Marshmallow(app)
+ma = Marshmallow(app)
 
-@app.route('/Sing_Up', methods=["POST"])
+class registro(db.Model): #Falta el dato de verificacion
+    id = db.Column(db.Integer, primary_key= True)
+    firstname = db.Column(db.String(50))
+    secondname = db.Column(db.String(100))
+    lastname = db.Column(db.String(50))
+    secondlastname = db.Column(db.String(50))
+    born = db.Column(db.String(50))
+    gender = db.Column(db.String(50))
+    number = db.Column(db.String(50))
+    email = db.Column(db.String(50))
+    password = db.Column(db.String(50))
+
+    #Falta el dato de verificacion y el id sobra
+    def __init__(self,firstname, sencondname, lastname,
+                    secondlastname, born,gender,number,email, password):
+        #self.id = id
+        self.firstname = firstname
+        self.secondname =  sencondname
+        self.lastname = lastname
+        self.secondlastname = secondlastname
+        self.born = born
+        self.gender = gender
+        self.number = number
+        self.email = email
+        self.password = password
+
+
+db.create_all()
+
+class RegistroSchema(ma.Schema):
+    class Meta:
+        fields = ( 'firstname', 'secondname', 'lastname', 'secondlastname',
+                    'born', 'gender', 'number', 'email', 'password')
+
+registro_schema = RegistroSchema()
+registros_schema = RegistroSchema(many=True)
+
+@app.route('/Sing_Up', methods=['POST'])
 def create_user():
     #  Receiving datas
     print("Ok")
@@ -24,9 +70,14 @@ def create_user():
         number = request.json['number']
         email = request.json['email']
         password = request.json['password']
-        verify_password = request.json['verify_password']
 
-        return jsonify({'message': 'received'})
+        new_registro = registro(first_name, secondname, first_surname,
+                    second_surname, born, sex, number, email, password)
+
+        db.session.add(new_registro)
+        db.session.commit()
+
+        return registro_schema.jsonify(new_registro)
 
     except Exception as ex:
         print(ex)
