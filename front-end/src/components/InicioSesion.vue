@@ -37,7 +37,7 @@
             <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email"
                    :class="{'is-invalid': submited && v$.consulta.email.$error }">
             <div v-if="submited && v$.consulta.email.$error" class="invalid-feedback">
-              El correo es requerido y/o invalido
+              El correo es requerido
               <span v-if="!v$.consulta.email.required">Email is required</span>
               <span v-if="!v$.consulta.email.email">Email is invalid</span>
             </div>
@@ -49,7 +49,7 @@
             <div v-if="submited && v$.consulta.pass.$error" class="invalid-feedback">
               La contraseña es requerida
               <span v-if="!v$.consulta.pass.required">Password is required</span>
-              <span v-if="!v$.consulta.pass.min">Password is too short</span>
+              <span v-if="!v$.consulta.pass.minLength">Password is too short</span>
             </div>
           </div>
 
@@ -77,7 +77,7 @@
         pass: null,
       },
       submited: false
-    };
+    }
   },
   validations: {
       consulta: {
@@ -91,7 +91,7 @@
         this.v$.$touch();
 
         if (this.v$.$invalid) {
-          console.log('invalid');
+          console.log('Campos invalidos');
           alert('Por favor, llene todos los campos correctamente');
         }
         else {
@@ -107,7 +107,7 @@
             .then((response) => { console.log("Respuesta:", response);
               if (response.data.status === "OK") {
                 console.log("Usuario logueado");
-                //window.location.href = "/";
+                window.location.href = "/Menu_one";
               }})
             .catch((error) =>{
                 console.error("Error al capturar el usuario")
@@ -231,7 +231,7 @@ label {
 }
 
 .invalid-feedback{
-  color: orange;
+  color: white;
   font-weight: bold;
 }
 </style>

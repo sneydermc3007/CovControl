@@ -35,61 +35,122 @@
         <div class="form-container">
           <div class="image-holder"></div>
 
-          <form name="form" id="form" v-on:submit.prevent="procesar();">
+          <form name="form" id="form" v-on:submit.prevent="procesarUsuario()">
             <h2 class="text-center"><strong>Registro</strong> de usuarios.</h2>
 
-            <div class="form-group">
-              <input v-model="registro.first_name" class="form-control" type="text" name="first_name" placeholder="Ingrese su Primer Nombre" id="first_name" autocomplete="off">
-            </div>
-
-            <div class="form-group">
-              <input v-model="registro.second_name" class="form-control" type="text" name="second_name" placeholder="Ingrese su Segundo Nombre" id="second_name">
-            </div>
-
-            <div class="form-group">
-              <input v-model="registro.first_surname" class="form-control" type="text" name="first_surname" placeholder="Ingrese su Primer Apellido" id="first_surname">
-            </div>
-
-            <div class="form-group">
-              <input v-model="registro.second_surname" class="form-control" type="text" name="second_surname" placeholder="Ingrese su Segundo Apellido" id="second_surname">
-            </div>
-
-            <div class="form-group">
-              <label class="text-center" for="born"> <strong>Seleccione su fecha de nacimiento</strong></label>
-              <input v-model="registro.born" class="form-control" type="date" name="born" id="born">
-            </div>
-
-            <div class="form-group">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="sex">Opciones</label>
+            <div class="primer_nombre">
+              <div class="form-group">
+                <input v-model="registro.first_name" class="form-control" type="text" name="first_name" placeholder="Ingrese su Primer Nombre" id="first_name"
+                       autocomplete="off" :class="{'is-invalid': submited && v$.registro.first_name.$error }">
+                <div v-if="submited && v$.registro.first_name.$error" class="invalid-feedback">
+                  Su primer nombre es requerido.
+                  <span v-if="!v$.registro.first_name.required"> Nombre 1 requerido</span>
                 </div>
-                <select v-model="registro.sex" class="custom-select" id="sex">
-                  <option disabled hidden value=""> Seleccione su sexo... </option>
-                  <option value="1">Masculino</option>
-                  <option value="2">Femenino</option>
-                  <option value="3">No Binario</option>
-                </select>
               </div>
             </div>
 
-            <div class="form-group">
-              <input v-model.number="registro.number" class="form-control" type="number" name="phone" placeholder="Ingrese su Numero" id="number">
+            <div class="segundo_nombre">
+              <div class="form-group">
+                <input v-model="registro.second_name" class="form-control" type="text" name="second_name" placeholder="Ingrese su Segundo Nombre" id="second_name">
+              </div>
             </div>
 
-            <div class="form-group">
-              <input v-model="registro.email" class="form-control" type="email" placeholder="Ingrese su Correo" id="email">
+            <div class="primer_apellido">
+              <div class="form-group">
+                <input v-model="registro.first_surname" class="form-control" type="text" name="first_surname" placeholder="Ingrese su Primer Apellido" id="first_surname"
+                      autocomplete="off" :class="{'is-invalid': submited && v$.registro.first_surname.$error }">
+                <div v-if="submited && v$.registro.first_surname.$error" class="invalid-feedback">
+                  Su primer apellido es requerido.
+                  <span v-if="!v$.registro.first_surname.required"> Apellido 1 requerido</span>
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <input v-model="registro.password" class="form-control" type="password" placeholder="Ingrese una Contraseña" id="password">
+            <div class="segundo_apellido">
+              <div class="form-group">
+                <input v-model="registro.second_surname" class="form-control" type="text" name="second_surname" placeholder="Ingrese su Segundo Apellido" id="second_surname">
+              </div>
             </div>
 
-            <div class="form-group">
-              <input v-model="registro.verify_password" class="form-control" type="password" placeholder="Repita la Contraseña" id="verify_password">
+            <div class="fecha_nacimiento">
+              <div class="form-group">
+                <label class="text-center" for="born"> <strong>Seleccione su fecha de nacimiento</strong></label>
+                <input v-model="registro.born" class="form-control" type="date" name="born" id="born"
+                       :class="{'is-invalid': submited && v$.registro.born.$error }">
+                <div v-if="submited && v$.registro.born.$error" class="invalid-feedback">
+                  Su fecha de nacimiento es requerida.
+                  <span v-if="!v$.registro.born.required"> Fecha de nacimiento requerida</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="nacimiento">
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="sex">Opciones</label>
+                  </div>
+                  <select v-model="registro.sex" class="custom-select" id="sex"
+                          :class="{'is-invalid': submited && v$.registro.sex.$error}">
+                    <div v-if="submited && v$.registro.sex.$error" class="invalid-feedback">
+                      Su genero es requerido
+                      <span v-if="!v$.registro.sex.required"> Su sexo es requerido</span>
+                    </div>
+                    <option disabled hidden value=""> Seleccione su sexo... </option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                    <option value="3">No Binario</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="numero_celular">
+              <div class="form-group">
+                <input v-model.number="registro.number" class="form-control" type="number" name="phone" placeholder="Ingrese su Numero" id="number"
+                 :class="{'is-invalid': submited && v$.registro.sex.$error }">
+                <div v-if="submited && v$.registro.sex.$error" class="invalid-feedback">
+                  Su fecha de nacimiento es requerida.
+                  <span v-if="!v$.registro.sex.required"> Fecha de nacimiento requerida</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="correo">
+              <div class="form-group">
+                <input v-model="registro.email" class="form-control" type="email" placeholder="Ingrese su Correo" id="email"
+                       :class="{'is-invalid': submited && v$.registro.email.$error }">
+                <div v-if="submited && v$.registro.email.$error" class="invalid-feedback">
+                  El correo institucional es requerido
+                  <span v-if="!v$.registro.email.required"> Correo institucional requerido</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contraseña">
+              <div class="form-group">
+                <input v-model="registro.password" class="form-control" type="password" placeholder="Ingrese una Contraseña" id="password"
+                       :class="{'is-invalid': submited && v$.registro.password.$error }">
+                <div v-if="submited && v$.registro.password.$error" class="invalid-feedback">
+                  La contraseña es requerida
+                  <span v-if="!v$.registro.password.required"> Contraseña requerida</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="verificar_contraseña">
+              <div class="form-group">
+                <input v-model="registro.verify_password" class="form-control" type="password" placeholder="Repita la Contraseña" id="verify_password"
+                       :class="{'is-invalid': submited && v$.registro.verify_password.$error }">
+                <div v-if="submited && v$.registro.verify_password.$error" class="invalid-feedback">
+                  La  verificación de la contraseña es requerida
+                  <span v-if="!v$.registro.verify_password.required"> La verificación es requerida</span>
+                </div>
+              </div>
             </div>
 
             <div class="form-group"><button class="btn btn-block" type="submit">Sign Up</button></div>
+
             <a class="already" href="/Log_in">Ya cuentas con una cuenta? Entra aquí.</a>
           </form>
         </div>
@@ -100,60 +161,83 @@
 
 <script>
  import axios from 'axios';
+ import useValidate from "@vuelidate/core";
+ import { required } from 'vuelidate/lib/validators';
 
-export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Registro",
-  data () {
-    return {
-      submited: false,
+  export default {
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: "Registro",
+    setup() { return { v$: useValidate() } },
+    data () {
+      return {
+        $v: useValidate(),
+        registro: {
+          first_name: null,
+          second_name: null,
+          first_surname: null,
+          second_surname: null,
+          born: null,
+          sex: "",
+          number: null,
+          email: null,
+          password: null,
+          verify_password: null
+        },
+        submited: false
+      }
+    },
+    validations: {
       registro: {
-        first_name: '',
-        second_name: '',
-        first_surname: '',
-        second_surname: '',
-        born: '',
-        sex: '',
-        number: '',
-        email: '',
-        password: '',
-        verify_password: ''
+        first_name: { required },
+        first_surname: { required },
+        born: { required },
+        sex: { required },
+        number: { required },
+        email: { required },
+        password: { required },
+        verify_password: { required }
+      }
+    },
+    methods: {
+      procesarUsuario(){
+        this.submited = true;
+        this.v$.$touch();
+
+        if (this.v$.$invalid) {
+          console.log('Campos invalidos');
+          alert('Por favor, llene todos los campos correctamente');
+        }
+        else {
+          console.log('Campos validos');
+          console.log("Capturando datos");
+
+          let parametros = {
+            first_name: this.registro.first_name,
+            second_name: this.registro.second_name,
+            first_surname: this.registro.first_surname,
+            second_surname: this.registro.second_surname,
+            born: this.registro.born,
+            sex: this.registro.sex,
+            number: this.registro.number,
+            email: this.registro.email,
+            password: this.registro.password
+          };
+          console.log(parametros);
+          axios.post('http://127.0.0.1:5000/Sing_up', parametros)
+            .then((response) => { console.log("Respuesta:", response);
+              if(response.status === 200) {
+                console.log("Registro exitoso");
+                //window.location.href = "/Log_in";
+                //document.form.reset();
+                //this.$router.push('/Sing_Up?s=1');
+              }})
+            .catch((error) => {
+              console.log("Error:", error);
+            });
+        }
       }
     }
-  },
-  methods: {
-    procesar() {
-      console.log("Capturando datos")
-
-      let parametros = {
-        first_name: this.registro.first_name,
-        second_name: this.registro.second_name,
-        first_surname: this.registro.first_surname,
-        second_surname: this.registro.second_surname,
-        born: this.registro.born,
-        sex: this.registro.sex,
-        number: this.registro.number,
-        email: this.registro.email,
-        password: this.registro.password,
-        verify_password: this.registro.verify_password
-
-    }
-    console.info(parametros)
-
-      axios.post('http://127.0.0.1:5000/Sing_Up', parametros)
-            .then((response) => { console.log("Vas bien")
-            if(response.status === 200){
-                console.log(response);
-                document.form.reset();
-                this.$router.push('/Sing_Up?s=1');
-            }
-          }).catch((err) => {
-            console.error("F equipo")
-            console.error(err);
-      })
-    }
-  }
-}
+  };
 </script>
 
 <style scoped>
