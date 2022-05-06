@@ -253,13 +253,17 @@
 <style scoped>
 
 .register-photo {
+  margin: 0;
+  padding-top: 60px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   background: #16222A;
   background: -webkit-linear-gradient(to right, #3A6073, #16222A);
   background: linear-gradient(to right, #3A6073, #16222A);
-
   background-size: cover;
 
-  padding: 60px 0;
+  min-height: 100vh;
 }
 
 .register-photo{
