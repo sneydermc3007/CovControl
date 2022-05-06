@@ -121,7 +121,7 @@
                 <input v-model="registro.email" class="form-control" type="email" placeholder="Ingrese su Correo" id="email"
                        :class="{'is-invalid': submited && v$.registro.email.$error }">
                 <div v-if="submited && v$.registro.email.$error" class="invalid-feedback">
-                  El correo institucional es requerido
+                  El correo es requerido
                   <span v-if="!v$.registro.email.required"> Correo institucional requerido</span>
                 </div>
               </div>
@@ -151,7 +151,7 @@
 
             <div class="datos-personales">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                <input class="form-check-input" type="checkbox" id="defaultCheck1" value="Si">
                 <label class="form-check-label" for="defaultCheck1">
                   Acepto el tratamiento de mis datos personales
                   <a  href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981">Ley 1581 de 2012</a>
@@ -412,4 +412,33 @@ b, strong {
   background: #11d3b8;
   color: #ffffff;
 }
+
+.datos-personales input[type=checkbox] {
+  display: none;
+}
+
+.datos-personales input[type=checkbox] + label {
+  cursor: pointer;
+}
+
+.datos-personales label:before{
+  content: "";
+  background: transparent;
+  border: 3px solid #11d3b8;
+  border-radius: 5px;
+  display: inline-block;
+  height: 20px;
+  margin-right: 8px;
+  text-shadow: 2px -2px 3px gray;
+  text-align: center;
+  vertical-align: center;
+  width: 20px;
+}
+
+.datos-personales input[type=checkbox]:checked + label:before {
+  content: '✓';
+  font-size: 10px;
+  color: orange;
+}
+
 </style>
