@@ -84,7 +84,7 @@
               </div>
             </div>
 
-            <div class="nacimiento">
+            <div class="genero">
               <div class="form-group">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -149,9 +149,18 @@
               </div>
             </div>
 
+            <div class="datos-personales">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                <label class="form-check-label" for="defaultCheck1">
+                  Acepto el tratamiento de mis datos personales
+                  <a  href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981">Ley 1581 de 2012</a>
+                </label>
+              </div>
+            </div>
+
             <div class="form-group"><button class="btn btn-block" type="submit">Sign Up</button></div>
 
-            <a class="already" href="/Log_in">Ya cuentas con una cuenta? Entra aquí.</a>
           </form>
         </div>
       </section>
@@ -227,6 +236,7 @@
             .then((response) => { console.log("Respuesta:", response);
               if(response.status === 200) {
                 console.log("Registro exitoso");
+                alert("Se ha registrado exitosamente el usuario con nombre: " + this.registro.first_name);
                 //window.location.href = "/Log_in";
                 //document.form.reset();
                 //this.$router.push('/Sing_Up?s=1');
@@ -352,6 +362,15 @@ b, strong {
   border-color: orangered;
   color: black;
   font-weight: bolder;
+}
+
+.datos-personales {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.form-container button{
+  margin-top: 1.5em;
 }
 
 .form-container button[type="submit"]:hover {
