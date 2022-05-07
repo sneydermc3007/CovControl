@@ -232,14 +232,15 @@
             password: this.registro.password
           };
           console.log(parametros);
-          axios.post('http://127.0.0.1:5000/Sing_up', parametros)
+          axios.post('http://127.0.0.1:5000/Sing_Up', parametros)
             .then((response) => { console.log("Respuesta:", response);
               if(response.status === 200) {
                 console.log("Registro exitoso");
                 alert("Se ha registrado exitosamente el usuario con nombre: " + this.registro.first_name);
-                //window.location.href = "/Log_in";
-                //document.form.reset();
-                //this.$router.push('/Sing_Up?s=1');
+
+                setTimeout(function () { window.location.href = '/Log_in'; }, 5000);  //Redireccionar a la pagina de Inicio de sesion
+                document.form.reset();
+                this.$router.push('/Sing_Up?s=1');
               }})
             .catch((error) => {
               console.log("Error:", error);
