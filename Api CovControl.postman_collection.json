@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "6239bfac-79e1-4a9a-ad5c-f440c7a8003f",
+		"name": "Api CovControl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sing_Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Juan\",\r\n    \"second_name\": \"Jose\",\r\n    \"first_surname\": \"Mazo\",\r\n    \"second_surname\": \"Acevedo\",\r\n    \"born\": \"2002-01-20\",\r\n    \"sex\": \"1\",\r\n    \"number\": \"3046624956\",\r\n    \"email\": \"juan.mazoac@amigo.edu.co\",\r\n    \"password\": \"12345678JJMA\",\r\n    \"verify_password\": \"12345678JJMA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/Sing_Up",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"Sing_Up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log_in",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sneyder.martinezca@amigo.edu.co\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/Log_in",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"Log_in"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
