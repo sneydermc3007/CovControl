@@ -1,6 +1,10 @@
 <template>
   <html lang="es">
     <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
       <title>CovControl Formulario</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     </head>
@@ -14,76 +18,76 @@
           <section id="ask-1">
             <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">Si</label>
+              <input class="form-check-input" type="radio" name="answer_one" id="answer_one-1" value="1">
+              <label class="form-check-label" for="answer_one-1">Si</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">No</label>
+              <input class="form-check-input" type="radio" name="answer_one" id="answer_one-2" value="2">
+              <label class="form-check-label" for="answer_one-2">No</label>
             </div>
           </section>
 
           <section id="ask-2">
             <h5>¿Cual de los siguientes sintomas ha presentado en el transcurso de estos 7 dias?</h5>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-              <label class="form-check-label" for="inlineCheckbox1">Tos</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-1" name="answer_two" value="1">
+              <label class="form-check-label" for="answer_two-1">Tos</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Dolor de garganta</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-2" name="answer_two" value="2">
+              <label class="form-check-label" for="answer_two-2">Dolor de garganta</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-              <label class="form-check-label" for="inlineCheckbox3">Dolor de cabeza</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-3" name="answer_two" value="3">
+              <label class="form-check-label" for="answer_two-3">Dolor de cabeza</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-              <label class="form-check-label" for="inlineCheckbox4">Fiebre</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-4" name="answer_two" value="4">
+              <label class="form-check-label" for="answer_two-4">Fiebre</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-              <label class="form-check-label" for="inlineCheckbox5">Dolor muscular</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-5" name="answer_two" value="5">
+              <label class="form-check-label" for="answer_two-5">Dolor muscular</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
-              <label class="form-check-label" for="inlineCheckbox6">Vomito</label>
+              <input class="form-check-input" type="checkbox" id="answer_two-6" name="answer_two" value="6">
+              <label class="form-check-label" for="answer_two-6">Vomito</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7">
-              <label class="form-check-label" for="inlineCheckbox7">Diarrea</label>
+              <input class="form-check-input" type="checkbox" id="answer_one-7" name="answer_two" value="7">
+              <label class="form-check-label" for="answer_one-7">Diarrea</label>
             </div>
           </section>
 
           <section id="ask-3">
             <h5>Durante el estado de alarma y hasta el dia de hoy ¿Has tenido Covid-19?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_two" id="inline_Radio1" value="option1" checked>
-              <label class="form-check-label" for="inline_Radio1"> Si </label>
+              <input class="form-check-input" type="radio" name="answer_three" id="answer_three-1" value="1">
+              <label class="form-check-label" for="answer_three-1"> Si </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_two" id="inline_Radio2" value="option2">
-              <label class="form-check-label" for="inline_Radio2"> No </label>
+              <input class="form-check-input" type="radio" name="answer_three" id="answer_three-2" value="2">
+              <label class="form-check-label" for="answer_three-2"> No </label>
             </div>
           </section>
 
           <section id="ask-4">
             <h5>¿Convive usted con personas mayores de 60 años?</h5>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_five" id="inline_Radio_1" value="option1">
-              <label class="form-check-label" for="inline_Radio_1"> Si </label>
+              <input class="form-check-input" type="radio" name="answer_four" id="answer_four-1" value="1">
+              <label class="form-check-label" for="answer_four-1"> Si </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_five" id="inline_Radio_2" value="option2">
-              <label class="form-check-label" for="inline_Radio_2"> No </label>
+              <input class="form-check-input" type="radio" name="answer_four" id="answer_four-2" value="2">
+              <label class="form-check-label" for="answer_four-2"> No </label>
             </div>
           </section>
 
           <section id="ask-5">
             <div>
-              <h5 for="inputGroupSelect01">De acuerdo a su estado de vacunación</h5>
+              <h5 for="answer_five">De acuerdo a su estado de vacunación</h5>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="answer_five">
               <option disabled selected hidden>Escoja su dosis a dia de hoy...</option>
               <option value="1"> Primera dosis aplicada </option>
               <option value="2"> Segunda dosis aplicada</option>
@@ -95,23 +99,23 @@
           <section id="ask-6">
             <h5>¿Utiliza alguno de los siguientes metodos para el cuidado personal para contrarrestar el Covid-19?</h5>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inline_Checkbox1" value="option1">
-              <label class="form-check-label" for="inline_Checkbox1">Tapabocas</label>
+              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-1" value="1">
+              <label class="form-check-label" for="answer_six-1">Tapabocas</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inline_Checkbox2" value="option2">
-              <label class="form-check-label" for="inline_Checkbox2">Gel</label>
+              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-2" value="2">
+              <label class="form-check-label" for="answer_six-2">Gel</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inline_Checkbox3" value="option3">
-              <label class="form-check-label" for="inline_Checkbox3">Alcohol</label>
+              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-3" value="3">
+              <label class="form-check-label" for="answer_six-3">Alcohol</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inline_Checkbox4" value="option4">
-              <label class="form-check-label" for="inline_Checkbox4">Lavado frecuente de manos</label>
+              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-4" value="4">
+              <label class="form-check-label" for="answer_six-4">Lavado frecuente de manos</label>
             </div>
           </section>
 
@@ -125,7 +129,34 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Formulario"
+  name: "Formulario",
+  data() {
+    return {
+      form: {
+        answer_one: "",
+        answer_two: "",
+        answer_three: "",
+        answer_four: "",
+        answer_five: "",
+        answer_six: ""
+      }
+    };
+  },
+  methods: {
+    getFormulario() {
+      console.log("Formulario: ", this.form);
+
+      let parametros = {
+        answer_one: this.form.answer_one,
+        answer_two: this.form.answer_two,
+        answer_three: this.form.answer_three,
+        answer_four: this.form.answer_four,
+        answer_five: this.form.answer_five,
+        answer_six: this.form.answer_six
+      }
+      console.info("Parametros: ", parametros);
+    }
+  }
 }
 </script>
 
