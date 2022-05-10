@@ -14,113 +14,115 @@
 
         <h3>Formulario Covid-19 <span>UCLA</span></h3>
 
-        <div class="form-container">
-          <section id="ask-1">
-            <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" id="answer_one-1" value="1">
-              <label class="form-check-label" for="answer_one-1">Si</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_one" id="answer_one-2" value="2">
-              <label class="form-check-label" for="answer_one-2">No</label>
-            </div>
-          </section>
+        <form name="formulario" id="formulario" v-on:submit.prevent="getFormulario();">
+          <div class="form-container">
+            <section id="ask-1">
+              <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_one" id="answer_one-1" value="1">
+                <label class="form-check-label" for="answer_one-1">Si</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_one" id="answer_one-2" value="2">
+                <label class="form-check-label" for="answer_one-2">No</label>
+              </div>
+            </section>
 
-          <section id="ask-2">
-            <h5>¿Cual de los siguientes sintomas ha presentado en el transcurso de estos 7 dias?</h5>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-1" name="answer_two" value="1">
-              <label class="form-check-label" for="answer_two-1">Tos</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-2" name="answer_two" value="2">
-              <label class="form-check-label" for="answer_two-2">Dolor de garganta</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-3" name="answer_two" value="3">
-              <label class="form-check-label" for="answer_two-3">Dolor de cabeza</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-4" name="answer_two" value="4">
-              <label class="form-check-label" for="answer_two-4">Fiebre</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-5" name="answer_two" value="5">
-              <label class="form-check-label" for="answer_two-5">Dolor muscular</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_two-6" name="answer_two" value="6">
-              <label class="form-check-label" for="answer_two-6">Vomito</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="answer_one-7" name="answer_two" value="7">
-              <label class="form-check-label" for="answer_one-7">Diarrea</label>
-            </div>
-          </section>
+            <section id="ask-2">
+              <h5>¿Cual de los siguientes sintomas ha presentado en el transcurso de estos 7 dias?</h5>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-1" name="answer_two" value="1">
+                <label class="form-check-label" for="answer_two-1">Tos</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-2" name="answer_two" value="2">
+                <label class="form-check-label" for="answer_two-2">Dolor de garganta</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-3" name="answer_two" value="3">
+                <label class="form-check-label" for="answer_two-3">Dolor de cabeza</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-4" name="answer_two" value="4">
+                <label class="form-check-label" for="answer_two-4">Fiebre</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-5" name="answer_two" value="5">
+                <label class="form-check-label" for="answer_two-5">Dolor muscular</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-6" name="answer_two" value="6">
+                <label class="form-check-label" for="answer_two-6">Vomito</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_one-7" name="answer_two" value="7">
+                <label class="form-check-label" for="answer_one-7">Diarrea</label>
+              </div>
+            </section>
 
-          <section id="ask-3">
-            <h5>Durante el estado de alarma y hasta el dia de hoy ¿Has tenido Covid-19?</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_three" id="answer_three-1" value="1">
-              <label class="form-check-label" for="answer_three-1"> Si </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_three" id="answer_three-2" value="2">
-              <label class="form-check-label" for="answer_three-2"> No </label>
-            </div>
-          </section>
+            <section id="ask-3">
+              <h5>Durante el estado de alarma y hasta el dia de hoy ¿Has tenido Covid-19?</h5>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_three" id="answer_three-1" value="1">
+                <label class="form-check-label" for="answer_three-1"> Si </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_three" id="answer_three-2" value="2">
+                <label class="form-check-label" for="answer_three-2"> No </label>
+              </div>
+            </section>
 
-          <section id="ask-4">
-            <h5>¿Convive usted con personas mayores de 60 años?</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_four" id="answer_four-1" value="1">
-              <label class="form-check-label" for="answer_four-1"> Si </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="answer_four" id="answer_four-2" value="2">
-              <label class="form-check-label" for="answer_four-2"> No </label>
-            </div>
-          </section>
+            <section id="ask-4">
+              <h5>¿Convive usted con personas mayores de 60 años?</h5>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_four" id="answer_four-1" value="1">
+                <label class="form-check-label" for="answer_four-1"> Si </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="answer_four" id="answer_four-2" value="2">
+                <label class="form-check-label" for="answer_four-2"> No </label>
+              </div>
+            </section>
 
-          <section id="ask-5">
-            <div>
-              <h5 for="answer_five">De acuerdo a su estado de vacunación</h5>
-            </div>
-            <select class="custom-select" id="answer_five">
-              <option disabled selected hidden>Escoja su dosis a dia de hoy...</option>
-              <option value="1"> Primera dosis aplicada </option>
-              <option value="2"> Segunda dosis aplicada</option>
-              <option value="3"> Tercera dosis aplicada</option>
-              <option value="4"> No me encuentro vacunado</option>
-            </select>
-          </section>
+            <section id="ask-5">
+              <div>
+                <h5 for="answer_five">De acuerdo a su estado de vacunación</h5>
+              </div>
+              <select class="custom-select" id="answer_five">
+                <option disabled selected hidden>Escoja su dosis a dia de hoy...</option>
+                <option value="1"> Primera dosis aplicada </option>
+                <option value="2"> Segunda dosis aplicada</option>
+                <option value="3"> Tercera dosis aplicada</option>
+                <option value="4"> No me encuentro vacunado</option>
+              </select>
+            </section>
 
-          <section id="ask-6">
-            <h5>¿Utiliza alguno de los siguientes metodos para el cuidado personal para contrarrestar el Covid-19?</h5>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-1" value="1">
-              <label class="form-check-label" for="answer_six-1">Tapabocas</label>
-            </div>
+            <section id="ask-6">
+              <h5>¿Utiliza alguno de los siguientes metodos para el cuidado personal para contrarrestar el Covid-19?</h5>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_six" type="checkbox" name="answer_six" id="answer_six-1" value="1">
+                <label class="form-check-label" for="answer_six-1">Tapabocas</label>
+              </div>
 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-2" value="2">
-              <label class="form-check-label" for="answer_six-2">Gel</label>
-            </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_six" type="checkbox" name="answer_six" id="answer_six-2" value="2">
+                <label class="form-check-label" for="answer_six-2">Gel</label>
+              </div>
 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-3" value="3">
-              <label class="form-check-label" for="answer_six-3">Alcohol</label>
-            </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_six" type="checkbox" name="answer_six" id="answer_six-3" value="3">
+                <label class="form-check-label" for="answer_six-3">Alcohol</label>
+              </div>
 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" name="answer_six" id="answer_six-4" value="4">
-              <label class="form-check-label" for="answer_six-4">Lavado frecuente de manos</label>
-            </div>
-          </section>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" v-model="form.answer_six" type="checkbox" name="answer_six" id="answer_six-4" value="4">
+                <label class="form-check-label" for="answer_six-4">Lavado frecuente de manos</label>
+              </div>
+            </section>
 
-          <button type="submit" >Enviar datos</button>
-        </div>
+            <button type="submit" >Enviar datos</button>
+          </div>
+        </form>
       </div>
     </body>
   </html>
@@ -133,12 +135,12 @@ export default {
   data() {
     return {
       form: {
-        answer_one: "",
-        answer_two: "",
-        answer_three: "",
-        answer_four: "",
-        answer_five: "",
-        answer_six: ""
+        answer_one: null,
+        answer_two: [],
+        answer_three: null,
+        answer_four: null,
+        answer_five: null,
+        answer_six: []
       }
     };
   },
