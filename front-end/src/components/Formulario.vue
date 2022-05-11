@@ -19,11 +19,11 @@
             <section id="ask-1">
               <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_one" id="answer_one-1" value="1">
+                <input class="form-check-input" v-model="form.answer_one" type="radio" name="answer_one" id="answer_one-1" value="1">
                 <label class="form-check-label" for="answer_one-1">Si</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_one" id="answer_one-2" value="2">
+                <input class="form-check-input" v-model="form.answer_one" type="radio" name="answer_one" id="answer_one-2" value="2">
                 <label class="form-check-label" for="answer_one-2">No</label>
               </div>
             </section>
@@ -63,11 +63,11 @@
             <section id="ask-3">
               <h5>Durante el estado de alarma y hasta el dia de hoy ¿Has tenido Covid-19?</h5>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_three" id="answer_three-1" value="1">
+                <input class="form-check-input" v-model="form.answer_three" type="radio" name="answer_three" id="answer_three-1" value="1">
                 <label class="form-check-label" for="answer_three-1"> Si </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_three" id="answer_three-2" value="2">
+                <input class="form-check-input" v-model="form.answer_three" type="radio" name="answer_three" id="answer_three-2" value="2">
                 <label class="form-check-label" for="answer_three-2"> No </label>
               </div>
             </section>
@@ -75,11 +75,11 @@
             <section id="ask-4">
               <h5>¿Convive usted con personas mayores de 60 años?</h5>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_four" id="answer_four-1" value="1">
+                <input class="form-check-input" v-model="form.answer_four" type="radio" name="answer_four" id="answer_four-1" value="1">
                 <label class="form-check-label" for="answer_four-1"> Si </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="answer_four" id="answer_four-2" value="2">
+                <input class="form-check-input" v-model="form.answer_four" type="radio" name="answer_four" id="answer_four-2" value="2">
                 <label class="form-check-label" for="answer_four-2"> No </label>
               </div>
             </section>
@@ -88,8 +88,8 @@
               <div>
                 <h5 for="answer_five">De acuerdo a su estado de vacunación</h5>
               </div>
-              <select class="custom-select" id="answer_five">
-                <option disabled selected hidden>Escoja su dosis a dia de hoy...</option>
+              <select class="custom-select" v-model="form.answer_five" name="answer_five" id="answer_five">
+                <option disabled hidden value=null>Escoja su dosis a dia de hoy...</option>
                 <option value="1"> Primera dosis aplicada </option>
                 <option value="2"> Segunda dosis aplicada</option>
                 <option value="3"> Tercera dosis aplicada</option>
@@ -146,7 +146,6 @@ export default {
   },
   methods: {
     getFormulario() {
-      console.log("Formulario: ", this.form);
 
       let parametros = {
         answer_one: this.form.answer_one,
@@ -156,7 +155,7 @@ export default {
         answer_five: this.form.answer_five,
         answer_six: this.form.answer_six
       }
-      console.info("Parametros: ", parametros);
+      console.info("Formulario: ", parametros);
     }
   }
 }
@@ -168,7 +167,7 @@ export default {
   box-sizing: border-box;
 }
 
-html {
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
