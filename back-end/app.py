@@ -7,6 +7,7 @@ app.config.from_object(__name__)
 
 CORS(app, resources={r"/*": {'origin': "*"}})
 
+
 # hello world route
 @app.route('/')
 def hola_mundo():
@@ -36,9 +37,11 @@ def menu_one():
         ask5 = request.json['answer_five']
         ask6 = request.json['answer_six']
 
-        return jsonify({'answer_one': ask1, 'answer_two': ask2,
-                        'answer_three': ask3, 'answer_four': ask4,
-                        'answer_five': ask5, 'answer_six': ask6})
+        return jsonify({'message':
+                           {'answer_one': ask1, 'answer_two': ask2,
+                            'answer_three': ask3, 'answer_four': ask4,
+                            'answer_five': ask5, 'answer_six': ask6}
+                        })
 
     except Exception as error:
         print(error)

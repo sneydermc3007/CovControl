@@ -129,6 +129,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Formulario",
@@ -155,7 +157,18 @@ export default {
         answer_five: this.form.answer_five,
         answer_six: this.form.answer_six
       }
-      console.info("Formulario: ", parametros);
+      console.info("Formulario: ", this.form);
+
+      axios.post('http://127.0.0.1:5000/Menu_one', parametros)
+        .then((response) => {  console.log("Respuesta formulario:", response);
+          if(response.status === 200){
+            console.log("Formulario enviado con éxito");
+          }
+        })
+      .catch((error) => {
+        console.error("Error al enviar el formulario");
+        console.error(error);
+      });
     }
   }
 }
