@@ -14,7 +14,7 @@
 
         <h3>Formulario Covid-19 <span>UCLA</span></h3>
 
-        <form name="formulario" id="formulario" v-on:submit.prevent="getFormulario();">
+        <form name="formulario" id="formulario" v-on:submit.prevent="validationsAlerts();">
           <div class="form-container">
             <section id="ask-1">
               <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
@@ -169,6 +169,28 @@ export default {
         console.error("Error al enviar el formulario");
         console.error(error);
       });
+    },
+    validationsAlerts() {
+        if(this.form.answer_one === null){
+          alert("Por favor, responda la pregunta 1");
+        }
+        else if(this.form.answer_two.length === 0){
+          alert("Por favor, responda la pregunta 2");
+        }
+        else if(this.form.answer_three === null){
+          alert("Por favor, responda la pregunta 3");
+        }
+        else if(this.form.answer_four === null){
+          alert("Por favor, responda la pregunta 4");
+        }
+        else if(this.form.answer_five === null){
+          alert("Por favor, responda la pregunta 5");
+        }
+        else if(this.form.answer_six.length === 0){
+          alert("Por favor, responda la pregunta 6");
+        } else{
+          this.getFormulario();
+        }
     }
   }
 }
