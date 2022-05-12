@@ -34,23 +34,11 @@
           <h1 class="form-title"> Inicio de sesion</h1>
 
           <div class="correo">
-            <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email"
-                   :class="{'is-invalid': submited && v$.consulta.email.$error }">
-            <div v-if="submited && v$.consulta.email.$error" class="invalid-feedback">
-              El correo es requerido
-              <span v-if="!v$.consulta.email.required">Email is required</span>
-              <span v-if="!v$.consulta.email.email">Email is invalid</span>
-            </div>
+            <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email">
           </div>
 
           <div class="contraseña">
-            <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass"
-                   :class="{'is-invalid': submited && v$.consulta.pass.$error }">
-            <div v-if="submited && v$.consulta.pass.$error" class="invalid-feedback">
-              La contraseña es requerida
-              <span v-if="!v$.consulta.pass.required">Password is required</span>
-              <span v-if="!v$.consulta.pass.minLength">Password is too short</span>
-            </div>
+            <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass">
           </div>
 
           <button type="submit">Login</button>
@@ -87,15 +75,6 @@
     },
     methods: {
       getConsultaUser() {
-        this.submited = true;
-        this.v$.$touch();
-
-        if (this.v$.$invalid) {
-          console.log('Campos invalidos');
-          alert('Por favor, llene todos los campos correctamente');
-        }
-        else {
-          console.log('Campos validos');
           console.log("Capturando datos");
 
           let variables = {
@@ -113,7 +92,7 @@
                 console.error("Error al capturar el usuario")
                 console.error(error);
             });
-        }
+
       }
     }
 };
@@ -228,10 +207,5 @@ label {
 
 .navbar.navbar-expand-lg.navbar-light{
   opacity: 0.9;
-}
-
-.invalid-feedback{
-  color: white;
-  font-weight: bold;
 }
 </style>
