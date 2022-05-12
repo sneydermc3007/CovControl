@@ -17,7 +17,7 @@
         <form name="formulario" id="formulario" v-on:submit.prevent="validationsAlerts();">
           <div class="form-container">
             <section id="ask-1">
-              <h5>¿En los ultimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
+              <h5>¿En los últimos 7 dias usted ha estado en contacto con una persona con covid-19?</h5>
               <div class="form-check">
                 <input class="form-check-input" v-model="form.answer_one" type="radio" name="answer_one" id="answer_one-1" value="1">
                 <label class="form-check-label" for="answer_one-1">Si</label>
@@ -29,7 +29,7 @@
             </section>
 
             <section id="ask-2">
-              <h5>¿Cual de los siguientes sintomas ha presentado en el transcurso de estos 7 dias?</h5>
+              <h5>¿Cual de los siguientes síntomas ha presentado en el transcurso de estos 7 dias?</h5>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" v-model="form.answer_two" type="checkbox" id="answer_two-1" name="answer_two" value="1">
                 <label class="form-check-label" for="answer_two-1">Tos</label>
@@ -98,7 +98,7 @@
             </section>
 
             <section id="ask-6">
-              <h5>¿Utiliza alguno de los siguientes metodos para el cuidado personal para contrarrestar el Covid-19?</h5>
+              <h5>¿Utiliza alguno de los siguientes métodos para el cuidado personal para contrarrestar el Covid-19?</h5>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" v-model="form.answer_six" type="checkbox" name="answer_six" id="answer_six-1" value="1">
                 <label class="form-check-label" for="answer_six-1">Tapabocas</label>
