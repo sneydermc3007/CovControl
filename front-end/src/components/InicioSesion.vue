@@ -11,7 +11,7 @@
     </head>
 
     <body>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4e488b;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #125183;">
         <a class="navbar-brand">CovControl</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
 
       <section class="snake">
         <Form @submit="getConsultaUser" class="form-box animated fadeInUp">
-          <h1 class="form-title"> Inicio de sesion</h1>
+          <h1 class="form-title"> Inicio de sesión</h1>
 
           <div class="correo">
             <Field name="correo" type="email" placeholder="Correo" :rules="validateEmail" ></Field>
@@ -123,10 +123,9 @@ html {
 
 section, html {
   height: 100%;
-  background: #0ee3d1;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #dce3dc, rgb(4, 228, 206));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #d7e7d7, #04e4ce); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 section {
@@ -150,7 +149,7 @@ section {
   width: 430px;
   height: 380px;
   padding-top: 45px;
-  background: #1c223e;
+  background: rgba(12, 71, 112, 0.52);
   text-align: center;
 }
 
@@ -175,7 +174,7 @@ label {
   display: block;
   margin: 15px auto;
   padding: 10px 20px;
-  border: solid #3742fa;
+  border: solid #00bbff;
   width: 200px;
   outline: none;
   color: #fff;
@@ -190,9 +189,9 @@ label {
 }
 
 .form-box button[type="submit"] {
-  background: #5352ed;
+  background: #129acb;
   cursor: pointer;
-  border: 2px solid #3742fa;
+  border: 2px solid #048fff;
 }
 
 .form-box button[type="submit"]:hover {
@@ -234,5 +233,12 @@ label {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   border: 0;
   opacity: 1;
+}
+
+::placeholder {
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.8;
+  font-weight: 100;
 }
 </style>
