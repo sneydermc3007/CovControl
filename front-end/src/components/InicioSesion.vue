@@ -123,9 +123,10 @@ html {
 
 section, html {
   height: 100%;
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: #0ee3d1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #dce3dc, rgb(4, 228, 206));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #d7e7d7, #04e4ce); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 section {
@@ -141,7 +142,7 @@ section {
 }
 /* Alternativa al body */
 .snake {
-  padding: 130px;
+  padding: 100px;
   height: auto;
 }
 
