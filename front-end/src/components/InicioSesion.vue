@@ -213,6 +213,7 @@ label {
 
 .navbar-light .navbar-brand {
   color: #ffffff;
+  font-style: italic;
 }
 
 .navbar-light .navbar-brand:hover {
