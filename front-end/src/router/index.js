@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import InicioSesion from "@/components/InicioSesion";
+import Formulario from "@/components/Formulario";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
     path: "/Sing_up",
     name: 'Registro',
     component: () => import('../components/Registro')
+  },
+  {
+    path: '/Menu_one',
+    name: 'Formulario',
+    component: Formulario
   }
 ];
 
