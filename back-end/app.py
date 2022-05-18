@@ -8,7 +8,7 @@ from flask_marshmallow import Marshmallow
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/flaskmysql'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.from_object(__name__)
 
 CORS(app, resources={r"/*": {'origin': "*"}})
@@ -17,8 +17,9 @@ db = SQLAlchemy(app)
 Marshmallow(app)
 ma = Marshmallow(app)
 
-class registro(db.Model): #Falta el dato de verificacion
-    id = db.Column(db.Integer, primary_key= True)
+
+class registro(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(50))
     secondname = db.Column(db.String(100))
     lastname = db.Column(db.String(50))
@@ -29,12 +30,10 @@ class registro(db.Model): #Falta el dato de verificacion
     email = db.Column(db.String(50))
     password = db.Column(db.String(50))
 
-    #Falta el dato de verificacion y el id sobra
-    def __init__(self,firstname, sencondname, lastname,
-                    secondlastname, born,gender,number,email, password):
-        #self.id = id
+    def __init__(self, firstname, sencondname, lastname,
+                 secondlastname, born, gender, number, email, password):
         self.firstname = firstname
-        self.secondname =  sencondname
+        self.secondname = sencondname
         self.lastname = lastname
         self.secondlastname = secondlastname
         self.born = born
@@ -46,13 +45,16 @@ class registro(db.Model): #Falta el dato de verificacion
 
 db.create_all()
 
+
 class RegistroSchema(ma.Schema):
     class Meta:
-        fields = ( 'firstname', 'secondname', 'lastname', 'secondlastname',
-                    'born', 'gender', 'number', 'email', 'password')
+        fields = ('firstname', 'secondname', 'lastname', 'secondlastname',
+                  'born', 'gender', 'number', 'email', 'password')
+
 
 registro_schema = RegistroSchema()
 registros_schema = RegistroSchema(many=True)
+
 
 @app.route('/Sing_Up', methods=['POST'])
 def create_user():
@@ -72,7 +74,7 @@ def create_user():
         password = request.json['password']
 
         new_registro = registro(first_name, secondname, first_surname,
-                    second_surname, born, sex, number, email, password)
+                                second_surname, born, sex, number, email, password)
 
         db.session.add(new_registro)
         db.session.commit()
@@ -82,6 +84,7 @@ def create_user():
     except Exception as ex:
         print(ex)
         return jsonify({'Error': 'El procesamiento de datos'})
+
 
 @app.route('/Log_in', methods=["POST"])
 def login():
@@ -96,6 +99,7 @@ def login():
     except Exception as ex:
         print(ex)
         return jsonify({'Error': 'En el momento de traer el usuario'})
+
 
 def pag_no_found(error):
     print(error)
