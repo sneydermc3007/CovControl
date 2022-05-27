@@ -287,6 +287,7 @@ import { required } from "@vuelidate/validators"
   opacity: 0.9;
 }
 
+
 .navbar-brand{
   font-weight: bold;
 }

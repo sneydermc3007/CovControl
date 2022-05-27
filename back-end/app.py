@@ -85,7 +85,7 @@ def create_user():
         print(ex)
         return jsonify({'Error': 'El procesamiento de datos'})
 
-
+      
 @app.route('/Log_in', methods=["POST"])
 def login():
     print(request.json)
@@ -99,6 +99,31 @@ def login():
     except Exception as ex:
         print(ex)
         return jsonify({'Error': 'En el momento de traer el usuario'})
+
+
+@app.route('/Menu_one', methods=["POST"])
+def menu_one():
+    print("OK")
+    print(request.json)
+
+    try:
+        ask1 = request.json['answer_one']
+        ask2 = request.json['answer_two']
+        ask3 = request.json['answer_three']
+        ask4 = request.json['answer_four']
+        ask5 = request.json['answer_five']
+        ask6 = request.json['answer_six']
+
+        return jsonify({'message':
+                           {'answer_one': ask1, 'answer_two': ask2,
+                            'answer_three': ask3, 'answer_four': ask4,
+                            'answer_five': ask5, 'answer_six': ask6}
+                        })
+
+    except Exception as error:
+        print(error)
+
+        return jsonify({'Error': 'Al recibir las respuestas del formulario'}) 
 
 
 def pag_no_found(error):
