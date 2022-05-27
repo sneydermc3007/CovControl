@@ -4,6 +4,10 @@ import Formulario from "@/components/Formulario";
 
 const routes = [
   {
+    path: '/',
+    redirect: '/Log_in'
+  },
+  {
     path: '/Log_in',
     name: 'InicioSesion',
     component: InicioSesion

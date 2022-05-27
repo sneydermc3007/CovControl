@@ -11,7 +11,7 @@
     </head>
 
     <body>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4e488b;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #125183;">
         <a class="navbar-brand">CovControl</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -20,80 +20,112 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="btn btn-link px-3 me-2" href="/" type="button">Inicio de Sesion</a>
+              <a class="btn btn-link px-3 me-2" href="/Log_in" type="button">Inicio de Sesion</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-link px-3 me-2" href="/" type="button">Registro</a>
+              <a class="btn btn-link px-3 me-2" href="/Sing_up" type="button">Registro</a>
             </li>
           </ul>
         </div>
       </nav>
 
       <section class="snake">
-        <form action="InicioSesion.vue" class="form-box animated fadeInUp">
-          <h1 class="form-title"> Inicio de sesion</h1>
+        <Form @submit="getConsultaUser" class="form-box animated fadeInUp">
+          <h1 class="form-title"> Inicio de sesión</h1>
 
-          <input type="text" placeholder="Cedula">
-            <label for="carrera"> Selecciona tu carrera: </label>
-                <select required id="carrera">
-                  <option value="" disabled selected hidden> Escoge una opción...</option>
-                  <option value="0">Arquitectura</option>
-                  <option value="1">Ingeniería Civil</option>
-                  <option value="2">Ingeniería de Sistemas</option>
-                  <option value="3">Ingeniería Industrial</option>
-                </select>
+          <div class="correo">
+            <Field name="correo" type="email" placeholder="Correo" :rules="validateEmail" ></Field>
+            <ErrorMessage name="correo" id="error-correo"></ErrorMessage>
+          </div>
 
-          <input type="password" placeholder="Password">
+          <div class="contraseña">
+            <Field name="password" type="password" placeholder="Contraseña" :rules="validatePass" ></Field>
+            <ErrorMessage name="password" id="error-contraseña"></ErrorMessage>
+          </div>
+
           <button type="submit">Login</button>
         </form>
       </section>
     </body>
-
-    <!-- Establecimiento de la conexion con el back-end en el html*
-    <div>
-      <h1>Hola Mundo</h1>
-      <p> {{ msg }}</p>
-    </div> -->
   </html>
 </template>
 
-
 <script>
-/* Conexion con back-end
-import axios from 'axios'
-export default {
+  import axios from 'axios';
+  import { Form, Field, ErrorMessage } from "vee-validate";
+
+  export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "InicioSesion",
-  data() {
-    return {
-      msg: ""
-    };
-  },
-  methods: {
-    getResponse(){
-      const path = 'http://localhost:5000/Log_in';
-      axios.get(path)
-      .then((res) => {
-        console.log(res.data)
-        this.msg = res.data;
-      })
-      .catch((err) => { console.error(err); });
+    components: {
+    Form, Field, ErrorMessage
+    },
+    methods: {
+      getConsultaUser(values) {
+        console.log("Capturando los datos");
+
+        let camposVariables = {
+          email: values.correo,
+          pass: values.password
+        }
+        console.log(camposVariables);
+
+        axios.post('http://127.0.0.1:5000/Log_in', camposVariables)
+            .then((response) => { console.log("Respuesta:", response);
+              if (response.data.status === "OK") {
+                console.log("Datos correctos");
+                window.location.href = "/Menu_one";
+              }})
+            .catch((error) => {
+              console.error("Error al capturar el usuario");
+              console.error(error);
+            });
+      },
+      validateEmail(value){
+        //Cuando el campo email esta vacio
+        if(!value){
+          return 'El campo email no puede estar vacio';
+        }
+
+        //Cuando el email no tiene el formato correcto
+        const emailregex = /^[a-z.]+@(amigo.edu.co)$/i;
+        if(!emailregex.test(value)){
+          return 'El email no tiene el formato correcto';
+        }
+        //Cuando el campo email está perfecto
+        return true;
+      },
+      validatePass(value){
+        //Cuando el campo pass esta vacio
+        if(!value){
+          return 'El campo contraseña no puede estar vacio';
+        }
+
+        //Cuando la contraseña no tiene el tamaño correcto
+        if (value.length < 8) {
+          return 'La contraseña debe tener al menos 6 caracteres';
+        }
+
+        //Cuando el campo pass está perfecto
+        return true;
+      }
     }
-  },
-  created() {
-    this.getResponse();
-  }
-}
-*/
+};
 </script>
 
 <style scoped>
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
 section, html {
   height: 100%;
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 section {
@@ -107,18 +139,17 @@ section {
   align-items: center;
   overflow: hidden;
 }
-
-/*Alternativa al body*/
+/* Alternativa al body */
 .snake {
-  padding: 180px;
+  padding: 100px;
   height: auto;
 }
 
 .form-box {
-  width: 450px;
-  height: 530px;
-  padding: 45px;
-  background: #1c223e;
+  width: 430px;
+  height: 380px;
+  padding-top: 45px;
+  background: rgba(12, 71, 112, 0.52);
   text-align: center;
 }
 
@@ -136,14 +167,14 @@ label {
   padding-bottom: 1px;
 }
 
-.form-box input[type="text"],
+.form-box input[type="email"],
 .form-box input[type="password"],
 .form-box button[type="submit"] {
   background: none;
   display: block;
-  margin: 30px auto;
+  margin: 15px auto;
   padding: 10px 20px;
-  border: solid #3742fa;
+  border: solid #00bbff;
   width: 200px;
   outline: none;
   color: #fff;
@@ -151,29 +182,16 @@ label {
   transition: 0.25s;
 }
 
-#carrera {
-  color: grey;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
-  border: solid #3742fa;
-  width: 250px;
-  outline: none;
-  border-radius: 30px;
-}
-
-.form-box input[type="text"]:focus,
-.form-box input[type="password"]:focus,
-#carrera:focus {
+.form-box input[type="email"]:focus,
+.form-box input[type="password"]:focus{
   width: 270px;
   border-color: white;
 }
 
 .form-box button[type="submit"] {
-  background: #5352ed;
+  background: #129acb;
   cursor: pointer;
-  border: 2px solid #3742fa;
+  border: 2px solid #048fff;
 }
 
 .form-box button[type="submit"]:hover {
@@ -195,6 +213,7 @@ label {
 
 .navbar-light .navbar-brand {
   color: #ffffff;
+  font-style: italic;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -203,5 +222,24 @@ label {
 
 .navbar.navbar-expand-lg.navbar-light{
   opacity: 0.9;
+}
+
+#error-correo,
+#error-contraseña {
+  color: #ffffff;
+  font-style: italic;
+}
+
+.form-box:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  border: 0;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.8;
+  font-weight: 100;
 }
 </style>
