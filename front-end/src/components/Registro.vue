@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-      <title>CovControl Sign Up</title>
+      <title>CovControl Registro</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     </head>
@@ -203,9 +203,9 @@ import { required } from "@vuelidate/validators"
         $v: useValidate(),
         registro: {
           first_name: null,
-          second_name: null,
+          second_name: "",
           first_surname: null,
-          second_surname: null,
+          second_surname: "",
           born: null,
           sex: "",
           number: null,

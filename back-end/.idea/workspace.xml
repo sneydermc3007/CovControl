@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="77be8902-2179-42c6-aa47-1f698cc08935" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="25vsjrZmAS6jrhihqHyABvyFosV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python.back-end">
+    <configuration name="CovControl" type="PythonConfigurationType" factoryName="Python">
+      <module name="back-end" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Universidad Catolica Luis Amigo\Semestre 7\Ingenieria de Software\ProyectoCurso\CovControl\back-end\entorno\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="back-end" type="PythonConfigurationType" factoryName="Python">
+      <module name="back-end" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.back-end" />
+      <item itemvalue="Python.CovControl" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="77be8902-2179-42c6-aa47-1f698cc08935" name="Changes" comment="" />
+      <created>1646419043244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646419043244</updated>
+      <workItem from="1646419049286" duration="1011000" />
+      <workItem from="1646420143111" duration="801000" />
+      <workItem from="1646421414807" duration="443000" />
+      <workItem from="1646421906937" duration="692000" />
+      <workItem from="1646423411170" duration="14000" />
+      <workItem from="1646423454027" duration="25000" />
+      <workItem from="1646609416930" duration="596000" />
+      <workItem from="1646626612070" duration="2755000" />
+      <workItem from="1646669467710" duration="3602000" />
+      <workItem from="1646713753811" duration="299000" />
+      <workItem from="1647268102470" duration="1015000" />
+      <workItem from="1647560898396" duration="612000" />
+      <workItem from="1647563208128" duration="140000" />
+      <workItem from="1647613110190" duration="10000" />
+      <workItem from="1647619762202" duration="1872000" />
+      <workItem from="1647621827522" duration="38000" />
+      <workItem from="1647623039065" duration="913000" />
+      <workItem from="1647624300848" duration="4224000" />
+      <workItem from="1647635194969" duration="1190000" />
+      <workItem from="1647638997834" duration="607000" />
+      <workItem from="1647648373829" duration="11000" />
+      <workItem from="1647649075793" duration="60000" />
+      <workItem from="1647747565645" duration="16000" />
+      <workItem from="1647747609326" duration="93000" />
+      <workItem from="1647748745641" duration="2895000" />
+      <workItem from="1647753123048" duration="8445000" />
+      <workItem from="1647762084111" duration="1448000" />
+      <workItem from="1647796555685" duration="5438000" />
+      <workItem from="1647832611826" duration="14000" />
+      <workItem from="1647881718623" duration="111000" />
+      <workItem from="1647975208183" duration="43000" />
+      <workItem from="1647983778322" duration="730000" />
+      <workItem from="1647991493414" duration="6728000" />
+      <workItem from="1647999245877" duration="4000" />
+      <workItem from="1649291808491" duration="424000" />
+      <workItem from="1649292302464" duration="12000" />
+      <workItem from="1649727116377" duration="30000" />
+      <workItem from="1650729106115" duration="235000" />
+      <workItem from="1650740725055" duration="218000" />
+      <workItem from="1651093635281" duration="6000" />
+      <workItem from="1651119522805" duration="6025000" />
+      <workItem from="1651125719869" duration="454000" />
+      <workItem from="1651126805370" duration="714000" />
+      <workItem from="1651180068560" duration="23000" />
+      <workItem from="1651180285577" duration="45000" />
+      <workItem from="1651182707035" duration="848000" />
+      <workItem from="1651188709480" duration="371000" />
+      <workItem from="1651207098388" duration="1554000" />
+      <workItem from="1651266543056" duration="54000" />
+      <workItem from="1651266878486" duration="122000" />
+      <workItem from="1651274844653" duration="1302000" />
+      <workItem from="1651278798871" duration="1033000" />
+      <workItem from="1651512309731" duration="184000" />
+      <workItem from="1651512515588" duration="761000" />
+      <workItem from="1651632014882" duration="261000" />
+      <workItem from="1651632663687" duration="271000" />
+      <workItem from="1651852433159" duration="143000" />
+      <workItem from="1651852598649" duration="910000" />
+      <workItem from="1651869787277" duration="3186000" />
+      <workItem from="1651883063218" duration="857000" />
+      <workItem from="1651884144395" duration="846000" />
+      <workItem from="1651897655872" duration="30000" />
+      <workItem from="1652116539273" duration="614000" />
+      <workItem from="1652200984615" duration="912000" />
+      <workItem from="1652226781664" duration="936000" />
+      <workItem from="1652240739811" duration="1355000" />
+      <workItem from="1652242123750" duration="44000" />
+      <workItem from="1652242182181" duration="701000" />
+      <workItem from="1652243767949" duration="257000" />
+      <workItem from="1652332079208" duration="217000" />
+      <workItem from="1652905685927" duration="267000" />
+      <workItem from="1652905976759" duration="187000" />
+      <workItem from="1652906194677" duration="31000" />
+      <workItem from="1652906371022" duration="777000" />
+      <workItem from="1652907204578" duration="1054000" />
+      <workItem from="1652908561234" duration="698000" />
+      <workItem from="1652909363120" duration="1178000" />
+      <workItem from="1652916788468" duration="1581000" />
+      <workItem from="1653327391479" duration="52000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/back_end$CovControl.coverage" NAME="CovControl Coverage Results" MODIFIED="1652909248904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/back_end$back_end.coverage" NAME="back-end Coverage Results" MODIFIED="1652918261791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

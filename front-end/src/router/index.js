@@ -21,6 +21,11 @@ const routes = [
     path: '/Menu_one',
     name: 'Formulario',
     component: Formulario
+  },
+  {
+    path: '/Menu_two',
+    name: 'Grafica',
+    component: () => import('../components/Grafica')
   }
 ];
 
