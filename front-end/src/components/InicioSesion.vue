@@ -5,13 +5,13 @@
       <meta name="viewport" content="width=device-width, initial=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-      <title>CovControl Sing In</title>
+      <title>CovControl Inicio de Sesion</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     </head>
 
     <body>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4e488b;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #125183;">
         <a class="navbar-brand">CovControl</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,27 +30,17 @@
       </nav>
 
       <section class="snake">
-        <form class="form-box animated fadeInUp" v-on:submit.prevent="getConsultaUser">
-          <h1 class="form-title"> Inicio de sesion</h1>
+        <Form @submit="getConsultaUser" class="form-box animated fadeInUp">
+          <h1 class="form-title"> Inicio de sesión</h1>
 
           <div class="correo">
-            <input v-model="consulta.email" type="email" placeholder="Correo" name="email" id="email"
-                   :class="{'is-invalid': submited && v$.consulta.email.$error }">
-            <div v-if="submited && v$.consulta.email.$error" class="invalid-feedback">
-              El correo es requerido
-              <span v-if="!v$.consulta.email.required">Email is required</span>
-              <span v-if="!v$.consulta.email.email">Email is invalid</span>
-            </div>
+            <Field name="correo" type="email" placeholder="Correo" :rules="validateEmail" ></Field>
+            <ErrorMessage name="correo" id="error-correo"></ErrorMessage>
           </div>
 
           <div class="contraseña">
-            <input v-model="consulta.pass" type="password" placeholder="Password" name="pass" id="pass"
-                   :class="{'is-invalid': submited && v$.consulta.pass.$error }">
-            <div v-if="submited && v$.consulta.pass.$error" class="invalid-feedback">
-              La contraseña es requerida
-              <span v-if="!v$.consulta.pass.required">Password is required</span>
-              <span v-if="!v$.consulta.pass.minLength">Password is too short</span>
-            </div>
+            <Field name="password" type="password" placeholder="Contraseña" :rules="validatePass" ></Field>
+            <ErrorMessage name="password" id="error-contraseña"></ErrorMessage>
           </div>
 
           <button type="submit">Login</button>
@@ -62,58 +52,62 @@
 
 <script>
   import axios from 'axios';
-  import useValidate from '@vuelidate/core';
-  import { required, email, minLength } from 'vuelidate/lib/validators';
+  import { Form, Field, ErrorMessage } from "vee-validate";
 
   export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "InicioSesion",
-  setup() { return { v$: useValidate() } },
-  data() {
-    return {
-      $v: useValidate(),
-      consulta: {
-        email: null,
-        pass: null,
-      },
-      submited: false
-    }
-  },
-  validations: {
-      consulta: {
-        email: { required, email },
-        pass: { required, minLength: minLength(8) },
-      }
+    components: {
+    Form, Field, ErrorMessage
     },
     methods: {
-      getConsultaUser() {
-        this.submited = true;
-        this.v$.$touch();
+      getConsultaUser(values) {
+        console.log("Capturando los datos");
 
-        if (this.v$.$invalid) {
-          console.log('Campos invalidos');
-          alert('Por favor, llene todos los campos correctamente');
+        let camposVariables = {
+          email: values.correo,
+          pass: values.password
         }
-        else {
-          console.log('Campos validos');
-          console.log("Capturando datos");
+        console.log(camposVariables);
 
-          let variables = {
-            email: this.consulta.email,
-            pass: this.consulta.pass
-          };
-          console.log(variables);
-          axios.post('http://127.0.0.1:5000/Log_in', variables)
+        axios.post('http://127.0.0.1:5000/Log_in', camposVariables)
             .then((response) => { console.log("Respuesta:", response);
               if (response.data.status === "OK") {
-                console.log("Usuario logueado");
+                console.log("Datos correctos");
                 window.location.href = "/Menu_one";
               }})
-            .catch((error) =>{
-                console.error("Error al capturar el usuario")
-                console.error(error);
+            .catch((error) => {
+              console.error("Error al capturar el usuario");
+              console.error(error);
             });
+      },
+      validateEmail(value){
+        //Cuando el campo email esta vacio
+        if(!value){
+          return 'El campo email no puede estar vacio';
         }
+
+        //Cuando el email no tiene el formato correcto
+        const emailregex = /^[a-z.]+@(amigo.edu.co)$/i;
+        if(!emailregex.test(value)){
+          return 'El email no tiene el formato correcto';
+        }
+        //Cuando el campo email está perfecto
+        return true;
+      },
+      validatePass(value){
+        //Cuando el campo pass esta vacio
+        if(!value){
+          return 'El campo contraseña no puede estar vacio';
+        }
+
+        //Cuando la contraseña no tiene el tamaño correcto
+        if (value.length < 6) {
+          return 'La contraseña debe tener al menos 6 caracteres';
+        }
+
+        //Cuando el campo pass está perfecto
+        return true;
       }
     }
 };
@@ -129,9 +123,9 @@ html {
 
 section, html {
   height: 100%;
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 section {
@@ -145,18 +139,17 @@ section {
   align-items: center;
   overflow: hidden;
 }
-
-/*Alternativa al body*/
+/* Alternativa al body */
 .snake {
-  padding: 130px;
+  padding: 100px;
   height: auto;
 }
 
 .form-box {
   width: 430px;
-  height: 440px;
+  height: 380px;
   padding-top: 45px;
-  background: #1c223e;
+  background: rgba(12, 71, 112, 0.52);
   text-align: center;
 }
 
@@ -179,9 +172,9 @@ label {
 .form-box button[type="submit"] {
   background: none;
   display: block;
-  margin: 30px auto;
+  margin: 15px auto;
   padding: 10px 20px;
-  border: solid #3742fa;
+  border: solid #00bbff;
   width: 200px;
   outline: none;
   color: #fff;
@@ -196,9 +189,9 @@ label {
 }
 
 .form-box button[type="submit"] {
-  background: #5352ed;
+  background: #129acb;
   cursor: pointer;
-  border: 2px solid #3742fa;
+  border: 2px solid #048fff;
 }
 
 .form-box button[type="submit"]:hover {
@@ -220,6 +213,7 @@ label {
 
 .navbar-light .navbar-brand {
   color: #ffffff;
+  font-style: italic;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -230,8 +224,22 @@ label {
   opacity: 0.9;
 }
 
-.invalid-feedback{
-  color: white;
-  font-weight: bold;
+#error-correo,
+#error-contraseña {
+  color: #ffffff;
+  font-style: italic;
+}
+
+.form-box:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  border: 0;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.8;
+  font-weight: 100;
 }
 </style>
